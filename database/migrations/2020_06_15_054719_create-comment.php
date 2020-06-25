@@ -17,7 +17,7 @@ class CreateComment extends Migration
             $table->increments('id');
             $table->text('detail');
             $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamp('updated_at')->nullable();
             $table->integer('post_id')->unsigned();
         });
     }

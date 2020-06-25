@@ -17,7 +17,7 @@ class CreateCategory extends Migration
             $table->increments('id');
             $table->string('name');
             $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamp('updated_at')->nullable();
             $table->string('description');
         });
     }

@@ -22,7 +22,7 @@ class CreatePost extends Migration
             $table->string('img');
             $table->integer('status');
             $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamp('updated_at')->nullable();
             $table->integer('category_id')->unsigned();
             $table->integer('users_id')->unsigned();
         });

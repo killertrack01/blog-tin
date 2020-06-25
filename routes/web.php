@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,7 @@ Route::delete('/delete/{id}','MemberController@deleteMember');
 Route::get('/updateIF/{id}','InfoController@update')->name('update');
 Route::put('/user-updateIF/{id}','InfoController@updateuser');
 });
+Route::get('/contact','InfoController@contact')->name('contact');
 
 Route::get('/postUser','InfoController@post')->name('post');
 Route::get('/feedback','InfoController@feedback')->name('feedback');

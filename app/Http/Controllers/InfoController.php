@@ -35,4 +35,8 @@ class InfoController extends Controller
     {
         return view('user.feedback');
     }
+    public function contact()
+    {
+        return view('user.contact');
+    }
 }

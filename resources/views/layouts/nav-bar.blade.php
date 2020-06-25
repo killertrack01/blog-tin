@@ -28,7 +28,7 @@
                 <a class="nav-link" href="{{ url('blog/about-us/') }}">Về chúng tôi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Liên hệ</a>
+                <a class="nav-link" href="{{ route('contact') }}">Liên hệ</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('feedback')}}">Phản hồi</a>

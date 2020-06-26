@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +50,4 @@ Route::get('/contact','InfoController@contact')->name('contact');
 
 Route::get('/postUser','InfoController@post')->name('post');
 Route::get('/feedback','InfoController@feedback')->name('feedback');
+Route::get('/about-us','AboutController@about');

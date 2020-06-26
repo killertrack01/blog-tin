@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <style>
-    .text-center{
+    .card{
         transition: 0.5s ease; 
         cursor: pointer;
     }
-    .text-center:hover{
+    .card:hover{
         transform: scale(1.1); 
         box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
     }

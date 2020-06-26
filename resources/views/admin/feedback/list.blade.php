@@ -22,14 +22,6 @@
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach( $feedback as $row )
-                      <tr>
-                        <td>{{ $row->id }}</td>
-                        <td>{{ $row->email }}</td>
-                        <td>{{ $row->detail }}</td>
-                        <td>{{ $row->status }}</td>
-                      </tr>
-                    @endforeach
                   </tbody>
                   <tfoot>
                     <tr>

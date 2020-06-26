@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Category;
 class CategoryController extends Controller
 {
     public function listCate() {
-        return view('admin.category.list');
+        $Cate = Category::all();
+        return view('admin.category.list',['cate'=>$Cate]);
     }
 
     public function createCate() {

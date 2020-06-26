@@ -86,10 +86,10 @@ padding-left: 18px;
     </style>
 </head>
 <body>
-    <div id="app">
-                <header>
-                @include('layouts\topbar')
-                
+    
+    <div class="container-fuild">
+                <header>           
+                @include('layouts\topbar')  
                 @include('layouts\nav-bar')
                 </header>
                 <main class="py-4">

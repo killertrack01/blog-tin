@@ -17,7 +17,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Ngày sinh </label>
-                                <input type="date" id="birthday" name="dob">
+                                <input type="date" id="birthday" name="dob" max="2010-01-01">
                             </div>
                             <div class="form-group">
                                 <label>Giới Tính</label>    
@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Số điện thoại</label>
-                                <input type="tel" name="tel" value="{{ $users->tel }}" class="form-control" pattern="[0-9]{10}">
+                                <input type="tel" name="tel" value="{{ $users->tel }}" class="form-control" pattern="((03|02|09|07|08)+[0-9]{8})">
                             </div>
                             <button type="submit" class="btn btn-success"> Cập Nhật</button>
                             <a href="/info" class="btn btn-danger"> Quay Lại</a>

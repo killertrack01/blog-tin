@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','Liên Hệ')
 @section('content')
 <style>
     .text-center{

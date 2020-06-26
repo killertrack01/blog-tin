@@ -17,9 +17,8 @@
                                         {{ session('status') }}
                                     </div>
                                     @endif
-                                    <div><h5><b>ID:</b>{{ $id = auth()->user()->id}}</h5></div>
                                     @foreach( $users as $row)
-                                        @if($row->id==$id)
+                                        @if($row->id==($id=auth()->user()->id))
                                         <div><h5><b>Họ Tên:</b>{{ $row->name }}</h5></div>
                                         <div><h5><b>Email:</b> {{ $row->email }}</h5></div>
                                         @if($row->gender=='M')

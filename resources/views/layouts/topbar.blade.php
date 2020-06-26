@@ -6,7 +6,7 @@
             </div>
 
             <div class="col-md-10">
-                <i class="fas fa-envelope"> nohope@gmail.com</i>
+                <i class="fas fa-envelope">nohope@gmail.com</i>
                 <div class="nav-item dropdown float-right d-inline">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="nav-icon fas fa-user"></i>

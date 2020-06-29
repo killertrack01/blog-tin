@@ -16,38 +16,49 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/info','InfoController@info') -> name('info');
+Route::get('/info', 'InfoController@info')->name('info');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('admin/index', 'AdminController@index');
-Route::group(['middleware' => ['auth','admin']], function()
-{
-Route::get('admin/index', 'AdminController@index')->name('admin');
+Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::get('admin/index', 'AdminController@index')->name('admin');
 
-Route::get('admin/control-admin/list', 'AdminController@listAdmin');
-Route::get('admin/control-admin/create', 'AdminController@createAdmin');
-Route::get('admin/control-admin/edit', 'AdminController@editAdmin');
+    Route::get('admin/control-admin/list', 'AdminController@listAdmin');
+    Route::get('admin/control-admin/create', 'AdminController@createAdmin');
+    Route::get('admin/control-admin/edit', 'AdminController@editAdmin');
 
-Route::get('admin/post/create', 'PostController@create');
-Route::get('admin/post/list', 'PostController@list');
-Route::get('admin/post/edit', 'PostController@getEdit');
-Route::get('admin/category/list', 'CategoryController@listCate');
-Route::get('admin/category/create', 'CategoryController@createCate');
-Route::get('admin/category/edit', 'CategoryController@editCate');
+    Route::get('admin/post/create', 'PostController@create');
+    Route::get('admin/post/list', 'PostController@list');
+    Route::get('admin/post/edit', 'PostController@getEdit');
 
-Route::get('admin/feedback/list', 'FeedbackController@listFeedback');
 
-Route::get('admin/comment/list', 'CommentController@listCmt');
+    Route::get('admin/feedback/list', 'FeedbackController@listFeedback');
 
-Route::get('admin/userpost/list', 'UserPostController@listUPost');
-Route::get('admin/member/list', 'MemberController@listMem');
-Route::delete('/delete/{id}','MemberController@deleteMember');
-Route::get('/updateIF/{id}','InfoController@update')->name('update');
-Route::put('/user-updateIF/{id}','InfoController@updateuser');
+    Route::get('admin/comment/list', 'CommentController@listCmt');
+
+    Route::get('admin/userpost/list', 'UserPostController@listUPost');
+    Route::get('admin/member/list', 'MemberController@listMem');
+    Route::delete('/delete/{id}', 'MemberController@deleteMember');
+    Route::get('/updateIF/{id}', 'InfoController@update')->name('update');
+    Route::put('/user-updateIF/{id}', 'InfoController@updateuser');
 });
-Route::get('/contact','InfoController@contact')->name('contact');
+Route::get('/contact', 'InfoController@contact')->name('contact');
 
-Route::get('/postUser','InfoController@post')->name('post');
-Route::get('/feedback','InfoController@feedback')->name('feedback');
-Route::get('/about-us','AboutController@about');
+Route::get('/postUser', 'InfoController@post')->name('post');
+Route::get('/feedback', 'InfoController@feedback')->name('feedback');
+Route::get('/about-us', 'AboutController@about');
+//thêm cate
+Route::group(['prefix' => 'admin'], function () {
+    Route::group(['prefix' => 'category'], function () {
+        Route::get('list', 'CategoryController@listCate');
+
+        Route::get('edit/{id}', 'CategoryController@editCate');
+        Route::post('edit/{id}','CategoryController@postEditCate');
+
+        Route::get('delete/{id}','CategoryController@cateDelete');
+
+        Route::get('create', 'CategoryController@createCate');
+        Route::post('create', 'CategoryController@postCate');
+    });
+});

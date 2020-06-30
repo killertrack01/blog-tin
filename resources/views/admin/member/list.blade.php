@@ -44,7 +44,27 @@
                         <form action="/delete/{{ $row->id }}" method="post">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> DELETE</button>
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash"></i></button>
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">Cảnh Báo Xóa Người Dùng !!!</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Bạn có chắc muốn xóa Người Dùng ?
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="submit" class="btn btn-danger">Xóa</button>
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
                         </form>
                     </td>
                   </tr>

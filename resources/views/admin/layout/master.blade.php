@@ -16,6 +16,7 @@
     
 </head>
 <body class="hold-transition sidebar-mini">
+<div class="container-fulid">
 <div class="wrapper">
     <!-- Navbar -->
 @include('admin.layout.nav-bar')
@@ -54,5 +55,6 @@
 
 <!-- page script -->
 @yield('script-section')
+</div>
 </body>
 </html>

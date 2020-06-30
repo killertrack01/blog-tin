@@ -17,11 +17,6 @@
 
     <!-- Styles -->
     <style>
-    html, body {
-    background-color: #fff;
-    color: #636b6f;
-    margin: 0;
-}
 .topbar{
 background-color: #212529;
 padding: 0;
@@ -85,7 +80,7 @@ padding-left: 18px;
 }
     </style>
 </head>
-<body>
+<body class="bg-light">
     
     <div class="container-fuild">
                 <header>           

@@ -8,6 +8,7 @@ use App\Category;
 
 class CategoryController extends Controller
 {
+
     public function listCate()
     {
         $Cate = Category::all();
@@ -23,7 +24,6 @@ class CategoryController extends Controller
     {
         $cate = Category::find($id);
         return view('admin.category.edit', ['cate' => $cate]);
-
     }
     public function postEditCate(Request $request, $id)
     {
@@ -32,11 +32,10 @@ class CategoryController extends Controller
         $this->validate(
             $request,
             [
-                'name' => 'required|unique:Category,name|min:2|max:100'
+                'name' => 'required|min:2|max:100'
             ],
             [
                 'name.required' => 'Bạn chưa nhập tên thể loại cho bài viết',
-                'name.unique'=>'Tên thể loại đã tồn tại',
                 'name.min' => 'Tên thể loại phải đạt ít nhất 3 kí tự',
                 'name.max' => 'Tên thể loại không được vượt quá 100 kí tự'
             ]
@@ -44,20 +43,19 @@ class CategoryController extends Controller
         $cate->name = $request->name;
         $cate->description = $request->description;
         $cate->save();
-        
-        return redirect('admin/category/edit/'.$id)->with('alert','Sửa tên loại bài thành công ');
 
+        return redirect('admin/category/edit/' . $id)->with('alert', 'Sửa tên loại bài thành công ');
     }
 
     public function cateDelete($id)
-    {   
-        $cate=Category::find($id);
+    {
+        $cate = Category::find($id);
         $cate->delete();
-        return redirect('admin/category/list')->with('alert','xóa thành công');
+        return redirect('admin/category/list')->with('alert', 'xóa thành công');
     }
 
     public function postCate(Request $request)
-    {   
+    {
         $this->validate(
             $request,
             [

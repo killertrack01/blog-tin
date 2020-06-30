@@ -15,13 +15,9 @@
                     Loại tin tức
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">PC</a>
-                    <a class="dropdown-item" href="#">Laptop</a>
-                    <a class="dropdown-item" href="#">Mobile</a>
-                    <a class="dropdown-item" href="#">Thiết bị ngoại vi</a>
-                    <!--<div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a> để làm điều kiện bao nhiêu sẽ tự xuống và chia ra 
-                nhưng trước mắt cứ để cứng về sau sẽ set động lại -->
+                    @foreach($cate as $c)
+                    <a class="dropdown-item" href="#">{{$c->name}}</a>
+                    @endforeach
                 </div>
             </li>
             <li class="nav-item">

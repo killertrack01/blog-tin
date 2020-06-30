@@ -4,8 +4,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-haeder">
+                    <div class="card-header bg-dark text-light">
                         <h4 class="text-center text-justify">Cập nhật thông tin cá nhân</h4>
+                        @if (session('status'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ session('status') }}
+                                    </div>
+                                    @endif
                     </div>
                     <div class="card-body">
                         <form action="/user-updateIF/{{ $users->id }}" method="POST">
@@ -14,6 +19,10 @@
                             <div class="form-group">
                                 <label>Họ Tên</label>
                                 <input type="text" name="name" value="{{ $users->name }}" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="email" value="{{ $users->email }}" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                             </div>
                             <div class="form-group">
                                 <label>Ngày sinh </label>

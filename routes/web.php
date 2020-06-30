@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/info','InfoController@info') -> name('info');
+Route::get('/info', 'InfoController@info')->name('info');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -47,8 +47,22 @@ Route::delete('/delete/{id}','MemberController@deleteMember');
 Route::get('/updateIF/{id}','InfoController@update')->name('update');
 Route::put('/user-updateIF/{id}','InfoController@updateuser');
 });
-Route::get('/contact','InfoController@contact')->name('contact');
+Route::get('/contact', 'InfoController@contact')->name('contact');
 
-Route::get('/postUser','InfoController@post')->name('post');
-Route::get('/feedback','InfoController@feedback')->name('feedback');
-Route::get('/about-us','AboutController@about');
+Route::get('/postUser', 'InfoController@post')->name('post');
+Route::get('/feedback', 'InfoController@feedback')->name('feedback');
+Route::get('/about-us', 'AboutController@about');
+//thêm cate
+Route::group(['prefix' => 'admin'], function () {
+    Route::group(['prefix' => 'category'], function () {
+        Route::get('list', 'CategoryController@listCate');
+
+        Route::get('edit/{id}', 'CategoryController@editCate');
+        Route::post('edit/{id}','CategoryController@postEditCate');
+
+        Route::get('delete/{id}','CategoryController@cateDelete');
+
+        Route::get('create', 'CategoryController@createCate');
+        Route::post('create', 'CategoryController@postCate');
+    });
+});

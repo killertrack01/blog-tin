@@ -2,48 +2,56 @@
 @extends('admin.layout.master')
 @section('title', 'Tạo thể loại tin')
 @section('content')
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="offset-md-3 col-md-6">
-                    <!-- general form elements -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h2>Tạo thể loại mới</h2>
-                        </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form role="form" action="#" method="post" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label><h4>Tên thể loại</h4></label>
-                                    <input type="text" class="form-control" id="cate_name" name="cate_name" placeholder="Nhập tên thể loại">
-                                </div>
-                                <div class="form-group">
-                                    <label>Trạng thái</label>
-                                    <div class="controls">
-                                        <select tabindex="1" name="cate_status" id="cate_status" data-placeholder="Chọn trạng thái.." class="span8">
-                                            <option value="">Chọn ở đây..</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label><h4>Mô tả thể loại</h4></label>
-                                    <textarea class="form-control" rows="3" id="cat_description" name="cat_description" placeholder="Enter ..."></textarea>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">xác nhận</button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- /.card -->
-                </div>
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12 text-center">
+            <h1>
+                <b>Thêm loại bài viết</b>
+            </h1>
         </div>
-    </section>
+    </div>
+    <!--thông báo là đã thêm thành công hay chưa-->
+    <div class="row">
+        <div class="col-xl-6">
+            @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                @foreach ($errors->all() as $err)
+                {{$err}} <br>
+                @endforeach
+            </div>
+            @endif
+
+            @if(session('alert'))
+            <div class="alert alert-success">
+                {{session('alert')}}
+            </div>
+            @endif
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-xl-2"></div>
+        <div class="col-xl-7">
+            <form action="/admin/category/create" method="POST">
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <label for="">Tên loại bài viết</label>
+                    <input type="text" class="form-control" name="cateName" require placeholder="Tên loại bài bạn muốn thêm">
+                </div>
+                <div class="form-group">
+                    <label for="">Chi tiết</label>
+                    <input type="text" class="form-control" name="description" require placeholder="Mô tả cho loại bài bạn sẽ thêm">
+                </div>
+                <div class="form-row text-center">
+                    <div class="form-group offset-9"></div>
+                    <div class="form-group col-xl-3 text-right">
+                        <input type="submit" class="btn btn-primary" value="Xác nhận">
+                        <input type="reset" class="btn btn-secondary" value="Hủy">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
 @section('script-section')
 

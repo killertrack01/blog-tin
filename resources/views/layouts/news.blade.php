@@ -1,6 +1,9 @@
 
 <section>
 <style>
+small { 
+  font-size: smaller;
+}
 * {box-sizing: border-box;}
 
 .container-img {
@@ -23,7 +26,6 @@
   transition: .5s ease;
   opacity:0;
   color: white;
-  font-size: 20px;
   padding: 20px;
   text-align: center;
 }
@@ -40,26 +42,31 @@
     <div class="row">
     <div class="col-md-3" style="margin-top:10px">
         <div class="container-img">
-        <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
-        <div class="overlay">Tiêu đề</div>
+        <img src="{{ asset('/images/anh.png')}}" width=300 height=300>
+        <div class="overlay">
+            <a href="#">
+                <i>Top 5 Laptop doanh nhân tốt nhất</i>
+            </a>
+            <small>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<a href="#">Xem thêm...</a></small>
+        </div>
         </div>
     </div>
     <div class="col-md-3" style="margin-top:10px">
         <div class="container-img">
-        <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
-        <div class="overlay">Tiêu đề</div>
+        <img src="{{ asset('/images/login.jpg')}}" width=300 height=300 >
+        <div class="overlay"><a  href="#"><i>tieu de</i></a></div>
         </div>
     </div>
     <div class="col-md-3" style="margin-top:10px">
         <div class="container-img">
-        <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
-        <div class="overlay">Tiêu đề</div>
+        <img src="{{ asset('/images/anh.png')}}" width=300 height=300 >
+        <div class="overlay"><a  href="#"><i>tieu de</i></a></div>
         </div>
     </div>
     <div class="col-md-3" style="margin-top:10px">
         <div class="container-img">
-        <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
-        <div class="overlay">Tiêu đề</div>
+        <img src="{{ asset('/images/anh.png')}}" width=300 height=300 >
+        <div class="overlay"><a  href="#"><i>tieu de</i></a></div>
         </div>
     </div>
 </div>

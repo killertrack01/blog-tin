@@ -70,15 +70,6 @@
                   @endif
                   @endforeach
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Id</th>
-                    <th>Email Admin</th>
-                    <th>Họ Tên</th>
-                    <th>Ngày Sinh</th>
-                    <th>Tel</th>
-                  </tr>
-                  </tfoot>
                 </table>
               </div>
               <!-- /.card-body -->
@@ -115,19 +106,4 @@
     </div>
     </section>
     @endif
-@endsection
-@section('script-section')
-<script>
-    $(function () {
-      $('#listadmin').DataTable({
-        "paging": true,
-        "lengthChange": true,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": true,
-        "responsive": true,
-      });
-    });
-  </script>
 @endsection

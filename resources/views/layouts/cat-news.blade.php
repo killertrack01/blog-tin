@@ -18,7 +18,7 @@
         <div class="col-9">
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -51,7 +51,7 @@
         <hr>
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -83,7 +83,7 @@
         <hr>
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -115,7 +115,7 @@
         <hr>
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -185,7 +185,7 @@
         <div class="col-9">
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -218,7 +218,7 @@
         <hr>
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -250,7 +250,7 @@
         <hr>
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -282,7 +282,7 @@
         <hr>
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -352,7 +352,7 @@
         <div class="col-9">
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -385,7 +385,7 @@
         <hr>
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -417,7 +417,7 @@
         <hr>
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -449,7 +449,7 @@
         <hr>
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -519,7 +519,7 @@
         <div class="col-9">
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -552,7 +552,7 @@
         <hr>
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -584,7 +584,7 @@
         <hr>
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
@@ -616,7 +616,7 @@
         <hr>
         <div class="row" style="margin-top:10px">
             <div class="col-md-3">
-            <img src="{{ asset('/images/anh.png')}}" alt="Avatar" class="image">
+            <img src="{{ asset('/images/anh.png')}}" width=240 height=188>
             <div id="share-buttons">
             <b><i>Share: </i></b>
             <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">

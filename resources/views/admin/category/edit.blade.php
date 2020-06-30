@@ -31,7 +31,7 @@
         <div class="offset-xl-2"></div>
         <div class="col-xl-6">
             <form action="/admin/category/edit/{{$cate->id}}" method="POST">
-            
+            {{ csrf_field() }}
                 <div class="form-group">
                     <label>Tên thể loại</label>
                     <input type="text" name="name" class="form-control" placeholder="Chỉnh sửa tên loại" value="{{$cate->name}}" />

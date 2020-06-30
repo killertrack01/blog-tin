@@ -36,7 +36,7 @@
           <td>{{$c->created_at}}</td>
           <td>{{$c->updated_at}}</td>
           <td><a href="/admin/category/edit/{{$c->id}}"><span class="btn btn-primary">sua lai</span></a></td>
-          <td><a href="/admin/category/delete/{{$c->id}}"><span class="btn btn-danger">xoa nha</span></a></td>
+          <td><a href="/admin/category/delete/{{$c->id}}"onclick="return confirm(' bạn có muốn xóa ko ?')"><span class="btn btn-danger">xoa nha</span></a></td>
         </tr>
         @endforeach
       </tbody>

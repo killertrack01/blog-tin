@@ -18,7 +18,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="listmember" class="table table-bordered table-hover">
+                <table id="listmember" class="table">
                   <thead>
                   <tr>
                     <th>ID</th>
@@ -71,17 +71,6 @@
                   @endif
                   @endforeach
                   </tbody>
-                  <tfoot>
-                  <tr>
-                  <th>STT</th>
-                    <th>Email</th>
-                    <th>Họ tên</th>
-                    <th>Ngày sinh</th>
-                    <th>Giới tính</th>
-                    <th>Số điện thoại</th>
-                    <th></th>
-                  </tr>
-                  </tfoot>
                 </table>
               </div>
               <!-- /.card-body -->
@@ -95,19 +84,4 @@
       <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-@endsection
-@section('script-section')
-  <script>
-    $(function () {
-      $('#listmember').DataTable({
-        "paging": true,
-        "lengthChange": true,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": true,
-        "responsive": true,
-      });
-    });
-  </script>
-@endsection
+@endsection  

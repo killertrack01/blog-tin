@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+<style>
+
+</style>
         <div class="container">
             <div class="row">
                 <div class="col-md-12"><div class="card">
@@ -15,7 +18,7 @@
                             <div class="card-header card-title bg-dark text-light text-center">
                             <h5><b>Thông tin cá nhân</b></h5>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body text-dark" style="background:#fdf5e6;">
                                     @if (session('status'))
                                     <div class="alert alert-success" role="alert">
                                         {{ session('status') }}
@@ -37,7 +40,7 @@
                                         <div><h5><b>Ngày Sinh:</b> {{ $row->dob }}</h5></div>
                                         <div><h5><b>Số điện thoại:</b> {{ $row->tel }}</h5></div>
                                         <br>
-                                        <button type="button" class="btn btn-outline-info"><a  href="/updateIF/{{ $row->id }}"><b>Cập Nhật Thông Tin</b></a></button> 
+                                        <button type="button" class="btn btn-outline-dark"><a href="/updateIF/{{ $row->id }}"><b>Cập Nhật Thông Tin</b></a></button> 
                                         @endif 
                                     @endforeach      
                             @endguest 

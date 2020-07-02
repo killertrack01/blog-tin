@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Validator;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -153,6 +155,23 @@ class InfoController extends Controller
 
     public function updateuser(Request $request, $id)
     {
+        $this->validate(
+            $request,
+            [
+                'name' => 'required|min:2|max:100',
+                'email' => 'required|email',
+                'tel' => 'min:10|max:10',
+                'tel'=>['regex:/(03|02|09|07|08)[0-9]{8}/']
+            ],
+            [
+                'email' => 'Vui lòng nhập đúng email',
+                'name.required' => 'Bạn chưa nhập',
+                'name.min' => 'Tên phải đạt ít nhất 2 kí tự',
+                'name.max' => 'Tên không được vượt quá 100 kí tự',
+                'tel.min' => 'Số điện thoại phải có chiều dài là 10',
+                'tel.max' => 'Số điện thoại phải có chiều dài là 10',
+            ]
+        );
         $check=true;
         $users = User::find($id);
         $user = User::all();

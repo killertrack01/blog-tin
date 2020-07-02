@@ -64,6 +64,7 @@
 		.box .image.fit {
       margin: 0;
       height:auto;
+	  
 		}
 
 		.box .image img {

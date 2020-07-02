@@ -3,110 +3,77 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Http\Requests\PostRequest;
-use Illuminate\Support\Facades\Storage;
-use App\news;
-use App\cate;
-use App\admin;
-use Auth;
-
+use Illuminate\Support\Str;
+use App\Category;
+use App\Post;
+use App\User;
 
 class PostController extends Controller
 {
-    public function getList(){
-        $posts = DB::table('post')->get();
-        return view('admin.post.list')->with(['posts'=>$posts]);
+
+    //list Post
+    public function listPost()
+    {
+        $Post = Post::all();
+        return view('admin.post.list', ['post' => $Post]);
     }
 
-    public function create() {
-        return view('admin.post.create');
+    //create Post
+    public function createPost()
+    {
+        $Cate= Category::all();
+        $User=User::all();
+        return view('admin.post.create',['cate'=>$Cate,'user'=>$User]);
     }
 
-    public function list() {
-        $posts = DB::table('post')->get();
-        return view('admin.post.list')->with(['posts'=>$posts]);
-    }
-    public function postCreate(postRequest $request){
-        // nhận tất cả tham số vào mảng post
-        $post = $request->all();
-        // xử lý upload hình vào thư mục
-        if($request->hasFile('img'))
-        {
-            $file=$request->file('img');
-            $extension = $file->getClientOriginalExtension();
-            if($extension != 'jpg' && $extension != 'png' && $extension !='jpeg')
-            {
-                return redirect('admin/post/create')->with('Lỗi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
-            }
-            $imageName = $file->getClientOriginalName();
-            $file->move("imgs",$imageName);
-        }
-        else{
-            return back()->with("error","Bạn chưa chọn ảnh đại diện của bài");
-        }
-        DB::table('post')->insert([
-            'title'=>$post['title'],
-            'summary'=>$post['summary'],
-            'detail'=>$post['detail'],
-            'img'=>$imageName,
-            'status'=>$post['status'],
-            'category_id'=>intval($post['category_id'])
-
+    public function postCreatePost(Request $request)
+    {
+        $this->validate($request,[
+            'title'=>'required|min:3',
+            'sum'=>'required|min:10|max:255',
+            'detail'=>'required',
+            'cate'=>'required'
+        ],[
+            'title.required'=>'Bạn chưa điền tiêu đề',
+            'txt-title.min'=>'Tiêu đề phải có ít nhất 3 kí tự',
+            'sum.required'=>'Bạn chưa ghi tóm tắt nội dung',
+            'sum.min'=>'Tóm tắt nội dung cần ít nhất 10 kí tự',
+            'sum.max'=>'Tóm tắt nội dung tối đa chỉ 255 kí tự',
+            'detail.required'=>'Bạn chưa ghi bài viết',
+            'cate.required'=>'Bạn chưa chọn loại tin'
         ]);
-        return redirect()->action('PostController@getlist');
-    }
 
-    public function getEdit(){
-       /* $p = DB::table('post')
-            ->where('id', intval($id))
-            ->first();*/
-    return view('admin.post.edit'/*, ['p'=>$p]*/);
-    }
+        $post = new Post;
+        $post->title = $request->title;
+        $post->summary = $request->sum;
+        $post->detail = $request->detail;
+        $post->author= $request->name;
+        $post->users_id = $request->author; 
+        $post->category_id =$request->cate;
+        $post->status =$request->status;
 
-    public function postEdit(postRequest $request, $id){
-        $title = $request->input('title');
-        $summary = $request->input('summary');
-        $detail = $request->input('detail');
-        $detail = $request->input('detail');
-        // xử lý upload hình vào thư mục
-        if($request->hasFile('img'))
+        if($request->hasFile('imgava'))
         {
-            $file=$request->file('img');
-            $extension = $file->getClientOriginalExtension();
-            if($extension != 'jpg' && $extension != 'png' && $extension !='jpeg')
+            $file = $request->file('imgava');
+
+            $d=$file->getClientOriginalExtension();
+            if($d !='jpg'&& $d !='jpeg' && $d !='png')
             {
-                return redirect('admin/post/edit')->with('Lỗi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+                return redirect('admin/post/create')->with('error','Web chỉ hỗ trợ đuôi hình png, jpg và jpeg!!!');
             }
-            $imageName = $file->getClientOriginalName();
-            $file->move("public/iags",$imageName);
-        } else { // không upload hình mới => giữ lại hình cũ
-            $p = DB::table('post')
-                ->where('id', intval($id))
-                ->first();
-            
-            $detail = $request->input('detail');    $imageName = $p->image;
-        }
-        $status = $request->input('status');
-        $category_id = $request->input('category_id');
+            $name= $file->getClientOriginalName();
 
-        $p = DB::table('post')
-                ->where('id', intval($id))
-                ->update([
-                    'title'=>$post['title'],
-                    'summary'=>$post['summary'],
-                    'detail'=>$post['detail'],
-                    'img'=>$imageName,
-                    'status'=>$post['status'],
-                    'category_id'=>intval($post['category_id'])       
-                ]);
-        return redirect()->action('ProductController@index');
-    }
-
-    public function getDelete($id){
-        $p = DB::table('post')
-            ->where('id', intval($id))
-            ->delete();
-        return redirect()->action('PostController@getList');
+            $img = Str::random(4)."_".$name;
+            while(file_exists("img/upload/ava-post/".$img)){
+                $img = Str::random(4)."_".$name;
+            }
+            $file->move("img/upload/ava-post",$img);
+            $post->img = $img;
+        }else
+        {
+            $post->imgava = "";
+        }   
+        $post->save();
+        return redirect('admin/post/create')->with('alert','Thêm bài viết thành công');
     }
 }

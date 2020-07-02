@@ -31,7 +31,7 @@
     <div class="row">
         <div class="offset-xl-2"></div>
         <div class="col-xl-7">
-            <form action="/admin/category/create" method="POST">
+            <form action="{{ asset('admin/category/create') }}" method="POST">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="">Tên loại bài viết</label>

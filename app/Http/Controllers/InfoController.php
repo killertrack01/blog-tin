@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\UPost;
 use VerifiesEmails;
-use Auth;
-use App\Category;
 class InfoController extends Controller
 {
     public function info()
@@ -22,135 +18,8 @@ class InfoController extends Controller
     }
     public function post()
     {
-        $post = UPost::all();
-        $cate = Category::all();
-        return view('user.postUser',['cate' => $cate,'post'=>$post]);
+        return view('user.postUser');
     }
-
-    public function listpost()
-    {
-        $users = auth()->user()->id;
-        $posts = DB::table('post')->where('users_id',$users)->get();
-        return view('user.listpost',['posts'=> $posts, 'users' => $users]);
-    }
-
-    public function postCreate(Request $request)
-    {
-        $this -> validate($request,[
-            
-        ],[
-            
-        ]);
-
-        // xử lý upload hình vào thư mục
-        if($request->hasFile('uImage'))
-        {
-            $file=$request->file('uImage');
-            $extension = $file->getClientOriginalExtension();
-            if($extension != 'jpg' && $extension != 'png' && $extension !='jpeg')
-            {
-                return redirect('user/postUser')->with('Lỗi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
-            }
-
-            $title = $request['uTitle'];
-            $summary = $request['uMota'];
-            $detail = $request['uNoidung'];
-            $author = $request['uAuthor'];
-            $category_id = $request['uCategory'];
-
-            $imageName = $file->getClientOriginalName();
-            $file->move("images",$imageName);
-
-            $post = new UPost;
-            $post['title']=$title;
-            $post['summary']=$summary;
-            $post['detail']=$detail;
-            $post['author']=$author;
-            $post['status']= '0';
-            $post['category_id']=$category_id;
-            $post['users_id']= auth()->user()->id;
-            $post['img']=$imageName;
-            $post -> save();
-
-
-        }
-        else
-        {
-            $imageName = null;
-        }
-
-
-        return redirect()->route('listpost');
-    }
-
-    public function edit($id)
-    {
-        $users = auth()->user()->id;
-        $cate = Category::all();
-        $post = UPost::find($id);
-        return view('user.edit',['post'=>$post,'cate'=>$cate,'users' => $users]);
-        
-    }
-
-    public function postEdit(Request $request, $id)
-    {
-
-        $this -> validate($request,[
-            
-        ],[
-            
-        ]);
-
-        $title = $request->input('uTitle');
-        $summary = $request->input('uMota');
-        $detail = $request->input('uNoidung');
-        $author = $request->input('uAuthor');
-        $category_id = $request->input('uCategory');
-        $users_id = auth()->user()->id;
-
-        if($request->hasFile('uImage'))
-        {
-            $file=$request->file('uImage');
-            $extension = $file->getClientOriginalExtension();
-            if($extension != 'jpg' && $extension != 'png' && $extension !='jpeg')
-            {
-                return redirect('user/edit')->with('Lỗi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
-            }
-            $imageName = $file->getClientOriginalName();
-            $file->move("images",$imageName);
-        } else { // không upload hình mới => giữ lại hình cũ
-            $post = DB::table('post')
-                ->where('id', intval($id))
-                ->first();
-            $imageName = $post->img;
-        }
-
-        $post = DB::table('post')
-                ->where('id', intval($id))
-                ->update([
-                    'title'=>$title, 
-                    'summary'=>$summary, 
-                    'detail'=>$detail,
-                    'author'=>$author,
-                    'img'=>$imageName,
-                    'status'=>'0',
-                    'category_id'=>$category_id,
-                    'users_id'=>$users_id
-                    ]);
-        return redirect()->route('listpost');
-
-    }
-
-    public function deletePost($id)
-    {
-        $post = UPost::find($id);
-        if(file_exists($post['img'])){
-            unlink($post['img']);
-        }
-        DB::table('post')->where('id', '=', $id)->delete();
-        return redirect()->route('listpost');
-    }
-
     public function updateuser(Request $request, $id)
     {
         $check=true;

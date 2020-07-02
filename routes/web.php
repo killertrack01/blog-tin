@@ -35,16 +35,32 @@ Route::get('admin/control-admin/edit', 'AdminController@editAdmin');
 Route::get('admin/feedback/list', 'FeedbackController@listFeedback');
 
 Route::get('admin/comment/list', 'CommentController@listCmt');
+//Admin duyệt post
+Route::get('admin/userpost/list', 'UserPostController@listUPost')->name('listuserpost');
 
-Route::get('admin/userpost/list', 'UserPostController@listUPost');
+Route::get('admin/userpost/detail/{id}', 'UserPostController@detail')->name('userpost');
+Route::get('userpost/update/{id}','UserPostController@updateStatus')->name('AdminUpdateStatus');
+
+Route::get('userpost/delete/{id}','UserPostController@deletePost')->name('AdmindeletePost');
+//
 Route::get('admin/member/list', 'MemberController@listMem');
 Route::delete('/delete/{id}','MemberController@deleteMember');
 Route::get('/updateIF/{id}','InfoController@update')->name('update');
 Route::put('/user-updateIF/{id}','InfoController@updateuser');
 });
 Route::get('/contact', 'InfoController@contact')->name('contact');
+//User đăng bài
+Route::get('/listpost','InfoController@listpost')->name('listpost');
+Route::post('/listpost','InfoController@getListPost')->name('getList');
 
-Route::get('/postUser', 'InfoController@post')->name('post');
+Route::get('/postUser','InfoController@post')->name('post');
+Route::post('/postUser','InfoController@postCreate')->name('postCreate');
+
+Route::get('/edit/{id}','InfoController@edit')->name('edit');
+Route::post('/edit/{id}','InfoController@postEdit')->name('postEdit');
+
+Route::get('/delete/{id}','InfoController@deletePost')->name('deletePost');
+//
 Route::get('/feedback', 'InfoController@feedback')->name('feedback');
 Route::get('/about-us', 'AboutController@about');
 

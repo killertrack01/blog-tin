@@ -72,5 +72,7 @@ Route::group(['prefix' => 'admin/post'], function () {
     Route::get('create', 'PostController@createPost');
     Route::post('create', 'PostController@postCreatePost');
 
-    Route::get('edit', 'PostController@deletePost');
+    //Edit post
+    Route::get('edit/{id}', 'PostController@editPost');
+    Route::post('edit/{id}','PostController@posteditPost');
 });

@@ -43,7 +43,7 @@
                     <p>{{ $p->title }}</p>
                     <img width="100px" src="{{ asset('img/upload/ava-post/'.$p->img) }}" alt="hình post">
                   </td>
-                  <td><p>{{ $p->summary }}</p></td>
+                  <td width='150px'><p>{{ $p->summary }}</p></td>
                   <td>{{ $p->cate->name }}</td>
                   <td>{{ $p->user->name }}</td>
                   <td>{{ $p->created_at }}</td>

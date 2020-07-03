@@ -76,4 +76,14 @@ class PostController extends Controller
         $post->save();
         return redirect('admin/post/create')->with('alert','Thêm bài viết thành công');
     }
+
+    //edit Post
+    public function editPost($id)
+    {
+        $Cate= Category::all();
+        $User=User::all();
+        $post= Post::find($id);
+        return view('admin.post.edit',['post'=>$post,'cate'=>$Cate,'user'=>$User]);
+    }
+    
 }

@@ -49,8 +49,8 @@
                   <td>{{ $p->created_at }}</td>
                   <td>{{ $p->updated_at }}</td>
                   <td>{{ $p->status }}</td>
-                  <td><a href=""><span class="btn btn-primary">sua lai</span></a></td>
-                  <td><a href="" onclick="return confirm(' bạn có muốn xóa ko ?')"><span class="btn btn-danger">xoa nha</span></a></td>
+                  <td><a href="{{ asset('admin/post/edit/'.$p->id) }}"><span class="btn btn-primary">sua lai</span></a></td>
+                  <td><a href="{{ asset('admin/post/delete/'.$p->id) }}" onclick="return confirm(' bạn có muốn xóa ko ?')"><span class="btn btn-danger">xoa nha</span></a></td>
                 </tr>
                 @endforeach
               </tbody>

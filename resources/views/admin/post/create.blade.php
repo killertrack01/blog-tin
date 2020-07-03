@@ -52,7 +52,7 @@
                     <div class="form-group col-xl-9"></div>
                     <!--Img post-->
                     <div class="form-group offset-xl-2 col-xl-3">
-                        <label>Hình tượng chưng cho bài viết</label>
+                        <label>Hình tượng trưng cho bài viết</label>
                         <input type="file" name="imgava">
                     </div>
                     <div class="form-group col-xl-7"></div>

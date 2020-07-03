@@ -25,19 +25,19 @@
             <h3>Chỉnh sửa bài viết</h3>
         </div>
         <div class="col-xl-12">
-            <form action="{{ asset('admin/post/edit'.$post->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ asset('admin/post/edit/'.$post->id) }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-row">
                     <!--Title-->
                     <div class="form-group offset-xl-2 col-xl-6">
                         <label>Tiêu đề bài viết</label>
-                        <input type="text" class="form-control" name="title" placeholder="Tiêu đề của bài viết">
+                        <input type="text" class="form-control" name="title" value="{{ $post->title }}" placeholder="Tiêu đề của bài viết">
                     </div>
                     <div class="form-group col-xl-4"></div>
                     <!--summary-->
                     <div class="form-group offset-xl-2 col-xl-6">
                         <label>Sơ lược về bài viết</label>
-                        <textarea class="form-control" name="sum" placeholder="sơ lược về bài viết"></textarea>
+                        <textarea class="form-control" name="sum" placeholder="sơ lược về bài viết">{{ $post->summary }}</textarea>
                     </div>
                     <div class="form-group col-xl-4"></div>
                     <!--Category-->
@@ -45,21 +45,32 @@
                         <label>Loại bài viết</label>
                         <select class="form-control" name="cate" id="cate">
                             @foreach($cate as $c)
-                            <option value="{{ $c->id }}">{{ $c->name }}</option>
+
+
+                            <option 
+                            @if( $post ->cate->id == $c->id)
+                                {{"selected"}}
+                            @endif
+                                value="{{ $c->id }}" >{{ $c->name }}
+                            </option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group col-xl-9"></div>
                     <!--Img post-->
                     <div class="form-group offset-xl-2 col-xl-3">
-                        <label>Hình tượng chưng cho bài viết</label>
+                        <label>Hình tượng trưng cho bài viết</label><br>
+                        <img src="{{ url('img/upload/ava-post/'.$post->img) }}" width="150px" alt="Post image">
+                        <br><br>
                         <input type="file" name="imgava">
                     </div>
                     <div class="form-group col-xl-7"></div>
                     <!--img post-->
                     <div class="form-group offset-xl-2 col-xl-6">
                         <label>Chi tiết bài viết</label>
-                        <textarea name="detail" id="edit1" class="form-control"></textarea>
+                        <textarea name="detail" id="edit1" class="form-control">
+                        {{ $post->detail }}
+                        </textarea>
                     </div>
                     <div class="form-group col-xl-4"></div>
                     <!--author-->

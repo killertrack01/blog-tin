@@ -35,11 +35,11 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="">Tên loại bài viết</label>
-                    <input type="text" class="form-control" name="cateName" require placeholder="Tên loại bài bạn muốn thêm">
+                    <input type="text" class="form-control" name="cateName" placeholder="Tên loại bài bạn muốn thêm">
                 </div>
                 <div class="form-group">
                     <label for="">Chi tiết</label>
-                    <input type="text" class="form-control" name="description" require placeholder="Mô tả cho loại bài bạn sẽ thêm">
+                    <input type="text" class="form-control" name="description"  placeholder="Mô tả cho loại bài bạn sẽ thêm">
                 </div>
                 <div class="form-row text-center">
                     <div class="form-group offset-9"></div>

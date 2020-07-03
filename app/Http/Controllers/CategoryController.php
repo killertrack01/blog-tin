@@ -31,12 +31,14 @@ class CategoryController extends Controller
         $this->validate(
             $request,
             [
-                'name' => 'required|min:2|max:100'
+                'name' => 'required|min:2|max:100',
+                'description' => 'required',
             ],
             [
                 'name.required' => 'Bạn chưa nhập tên thể loại cho bài viết',
                 'name.min' => 'Tên thể loại phải đạt ít nhất 3 kí tự',
-                'name.max' => 'Tên thể loại không được vượt quá 100 kí tự'
+                'name.max' => 'Tên thể loại không được vượt quá 100 kí tự',
+                'description.required'=>'Bạn chưa nhập mô tả',
             ]
         );
         $cate->name = $request->name;

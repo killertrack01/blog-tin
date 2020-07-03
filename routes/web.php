@@ -23,24 +23,23 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('admin/index', 'AdminController@index');
-Route::group(['middleware' => ['auth','admin']], function()
-{
-Route::get('admin/index', 'AdminController@index')->name('admin');
+Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::get('admin/index', 'AdminController@index')->name('admin');
 
-Route::get('admin/control-admin/list', 'AdminController@listAdmin');
-Route::delete('/delete-admin/{id}','AdminController@deleteAdmin');
-Route::get('admin/control-admin/create', 'AdminController@createAdmin');
-Route::get('admin/control-admin/edit', 'AdminController@editAdmin');
+    Route::get('admin/control-admin/list', 'AdminController@listAdmin');
+    Route::delete('/delete-admin/{id}', 'AdminController@deleteAdmin');
+    Route::get('admin/control-admin/create', 'AdminController@createAdmin');
+    Route::get('admin/control-admin/edit', 'AdminController@editAdmin');
 
-Route::get('admin/feedback/list', 'FeedbackController@listFeedback');
+    Route::get('admin/feedback/list', 'FeedbackController@listFeedback');
 
-Route::get('admin/comment/list', 'CommentController@listCmt');
+    Route::get('admin/comment/list', 'CommentController@listCmt');
 
-Route::get('admin/userpost/list', 'UserPostController@listUPost');
-Route::get('admin/member/list', 'MemberController@listMem');
-Route::delete('/delete/{id}','MemberController@deleteMember');
-Route::get('/updateIF/{id}','InfoController@update')->name('update');
-Route::put('/user-updateIF/{id}','InfoController@updateuser');
+    Route::get('admin/userpost/list', 'UserPostController@listUPost');
+    Route::get('admin/member/list', 'MemberController@listMem');
+    Route::delete('/delete/{id}', 'MemberController@deleteMember');
+    Route::get('/updateIF/{id}', 'InfoController@update')->name('update');
+    Route::put('/user-updateIF/{id}', 'InfoController@updateuser');
 });
 Route::get('/contact', 'InfoController@contact')->name('contact');
 
@@ -54,9 +53,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('list', 'CategoryController@listCate');
 
         Route::get('edit/{id}', 'CategoryController@editCate');
-        Route::post('edit/{id}','CategoryController@postEditCate');
+        Route::post('edit/{id}', 'CategoryController@postEditCate');
 
-        Route::get('delete/{id}','CategoryController@cateDelete');
+        Route::get('delete/{id}', 'CategoryController@cateDelete');
 
         Route::get('create', 'CategoryController@createCate');
         Route::post('create', 'CategoryController@postCate');
@@ -64,14 +63,16 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 //thêm xóa sửa post
-Route::group(['prefix'=>'admin/post'],function(){
-   
-   //list post
-    Route::get('list','PostController@listPost');
+Route::group(['prefix' => 'admin/post'], function () {
+
+    //list post
+    Route::get('list', 'PostController@listPost');
 
     //create post
-    Route::get('create','PostController@createPost');
-    Route::post('create','PostController@postCreatePost');
+    Route::get('create', 'PostController@createPost');
+    Route::post('create', 'PostController@postCreatePost');
 
-    Route::get('edit','PostController@deletePost');
+    //Edit post
+    Route::get('edit/{id}', 'PostController@editPost');
+    Route::post('edit/{id}','PostController@posteditPost');
 });

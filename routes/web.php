@@ -78,14 +78,8 @@ Route::group(['prefix' => 'admin/post'], function () {
     Route::get('delete/{id}','PostController@deletePost');
 });
 //cate detail
-<<<<<<< HEAD
 /*Route::get('listcate/cate-detail', function (){
      return view('listcate.cate-detail');
 });*/
 Route::get('listcate/cate-detail/{id}','CategoryController@cateDetail');
-=======
-Route::get('layouts/layout-detail', function (){
-     return view('layouts.layout-detail');
-});
 
->>>>>>> 6ad54452f3b7ee77da330af7e279f3f8694f37e0

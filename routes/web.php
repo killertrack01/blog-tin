@@ -14,14 +14,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('index');
-});
+// insert data
+Route::get('/','DataController@insertData')->name('home');
 Route::get('/info', 'InfoController@info')->name('info');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('admin/index', 'AdminController@index');
 Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('admin/index', 'AdminController@index')->name('admin');
@@ -80,7 +78,14 @@ Route::group(['prefix' => 'admin/post'], function () {
     Route::get('delete/{id}','PostController@deletePost');
 });
 //cate detail
+<<<<<<< HEAD
 /*Route::get('listcate/cate-detail', function (){
      return view('listcate.cate-detail');
 });*/
 Route::get('listcate/cate-detail/{id}','CategoryController@cateDetail');
+=======
+Route::get('layouts/layout-detail', function (){
+     return view('layouts.layout-detail');
+});
+
+>>>>>>> 6ad54452f3b7ee77da330af7e279f3f8694f37e0

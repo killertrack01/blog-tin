@@ -14,14 +14,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('index');
-});
+// insert data
+Route::get('/','DataController@insertData')->name('home');
 Route::get('/info', 'InfoController@info')->name('info');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('admin/index', 'AdminController@index');
 Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('admin/index', 'AdminController@index')->name('admin');
@@ -76,3 +74,4 @@ Route::group(['prefix' => 'admin/post'], function () {
     Route::get('edit/{id}', 'PostController@editPost');
     Route::post('edit/{id}','PostController@posteditPost');
 });
+

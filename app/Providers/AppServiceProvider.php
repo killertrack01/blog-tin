@@ -25,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {   
         $Cate= Category::all();
-        View::share('cate', $Cate);
+       View::share('cate', $Cate);
     }
 }

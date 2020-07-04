@@ -73,5 +73,12 @@ Route::group(['prefix' => 'admin/post'], function () {
     //Edit post
     Route::get('edit/{id}', 'PostController@editPost');
     Route::post('edit/{id}','PostController@posteditPost');
+
+    //delete post
+    Route::get('delete/{id}','PostController@deletePost');
+});
+//cate detail
+Route::get('layouts/layout-detail', function (){
+     return view('layouts.layout-detail');
 });
 

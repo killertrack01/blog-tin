@@ -85,5 +85,60 @@ class PostController extends Controller
         $post= Post::find($id);
         return view('admin.post.edit',['post'=>$post,'cate'=>$Cate,'user'=>$User]);
     }
-    
+    public function posteditPost(Request $request,$id)
+    {
+        $post = Post::find($id);
+        $this->validate($request,[
+            'title'=>'required|min:3',
+            'sum'=>'required|min:10|max:255',
+            'detail'=>'required',
+            'cate'=>'required'
+        ],[
+            'title.required'=>'Bạn chưa điền tiêu đề',
+            'txt-title.min'=>'Tiêu đề phải có ít nhất 3 kí tự',
+            'sum.required'=>'Bạn chưa ghi tóm tắt nội dung',
+            'sum.min'=>'Tóm tắt nội dung cần ít nhất 10 kí tự',
+            'sum.max'=>'Tóm tắt nội dung tối đa chỉ 255 kí tự',
+            'detail.required'=>'Bạn chưa ghi bài viết',
+            'cate.required'=>'Bạn chưa chọn loại tin'
+        ]);
+
+        $post->title = $request->title;
+        $post->summary = $request->sum;
+        $post->detail = $request->detail;
+        $post->author= $request->name;
+        $post->users_id = $request->author; 
+        $post->category_id =$request->cate;
+        $post->status =$request->status;
+
+        if($request->hasFile('imgava'))
+        {
+            $file = $request->file('imgava');
+
+            $d=$file->getClientOriginalExtension();
+            if($d !='jpg'&& $d !='jpeg' && $d !='png')
+            {
+                return redirect('admin/post/create')->with('error','Web chỉ hỗ trợ đuôi hình png, jpg và jpeg!!!');
+            }
+            $name= $file->getClientOriginalName();
+
+            $img = Str::random(4)."_".$name;
+            while(file_exists("img/upload/ava-post/".$img)){
+                $img = Str::random(4)."_".$name;
+            }
+            $file->move("img/upload/ava-post",$img);
+            unlink("img/upload/ava-post/".$post->img);
+            $post->img = $img;
+        }  
+        $post->save();
+        return redirect('admin/post/edit/'.$id)->with('alert','Sửa Thành công');
+    }
+
+    //detele 
+    public function deletePost($id)
+    {
+        $post = Post::find($id);
+        $post ->delete();
+        return redirect('admin/post/list')->with('alert','Xóa Thành công');
+    }
 }

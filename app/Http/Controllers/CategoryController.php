@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Post;
+use App\User;
 
 class CategoryController extends Controller
 {
@@ -11,7 +13,7 @@ class CategoryController extends Controller
     public function listCate()
     {
         $Cate = Category::all();
-        return view('admin.category.list', ['cate' => $Cate]);
+        return view('admin.category.list', compact('cate'));
     }
 
     public function createCate()
@@ -38,7 +40,7 @@ class CategoryController extends Controller
                 'name.required' => 'Bạn chưa nhập tên thể loại cho bài viết',
                 'name.min' => 'Tên thể loại phải đạt ít nhất 3 kí tự',
                 'name.max' => 'Tên thể loại không được vượt quá 100 kí tự',
-                'description.required'=>'Bạn chưa nhập mô tả',
+                'description.required' => 'Bạn chưa nhập mô tả',
             ]
         );
         $cate->name = $request->name;
@@ -74,5 +76,13 @@ class CategoryController extends Controller
         $Cate->save();
 
         return redirect('admin/category/create')->with('alert', 'Thêm thành công');
+    }
+
+    public function cateDetail(Request $request,$id)
+    {
+        $catemain = Category::find($id);
+        $post = Post::where('category_id', $id)
+        ->get();
+        return view('listcate.cate_detail', compact('catemain','post'));
     }
 }

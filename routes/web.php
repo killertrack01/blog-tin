@@ -80,6 +80,7 @@ Route::group(['prefix' => 'admin/post'], function () {
     Route::get('delete/{id}','PostController@deletePost');
 });
 //cate detail
-Route::get('layouts/layout-detail', function (){
-     return view('layouts.layout-detail');
-});
+/*Route::get('listcate/cate-detail', function (){
+     return view('listcate.cate-detail');
+});*/
+Route::get('listcate/cate-detail/{id}','CategoryController@cateDetail');

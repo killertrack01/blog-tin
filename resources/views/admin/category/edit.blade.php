@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-12">
+        <div class="offset-xl-2 col-xl-6">
             @if(count($errors) > 0)
             <div class="alert alert-danger">
                 @foreach ($errors->all() as $err)

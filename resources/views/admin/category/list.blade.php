@@ -16,7 +16,7 @@
       <h1>Danh sách thể loại bài viết</h1>
     </div>
     <div class="col-xl-12">
-      <table class="table table-light">
+      <table class="table table-light ">
         <thead>
           <tr>
             <th>#ID</th>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="{{ url('/') }}">
         <img src="{{ url('logo/logo.png') }}" alt="logo website" height="100px" width="150px" class="img-fluid">
     </a>
@@ -16,12 +16,12 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @foreach($cate as $c)
-                    <a class="nav-link" href="{{ url('listcate/cate-detail/'.$c->id) }}">{{ $c->name }}</a>       
+                    <a class="dropdown-item" href="{{ url('listcate/cate-detail/'.$c->id) }}">{{ $c->name }}</a>       
                     @endforeach     
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('listcate/cate-detail/15') }}">Về chúng tôi</a>
+                <a class="nav-link" href="{{ url('/about-us') }}">Về chúng tôi</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('contact') }}">Liên hệ</a>

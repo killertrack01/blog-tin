@@ -23,7 +23,7 @@
                         @foreach($relate as $r)
                         <div class="row">
                             <div class="col-xl-5">
-                                <a href="url('listcate/detail/'.$r->id)">
+                                <a href="{{ url('listcate/detail/'.$r->id) }}">
                                     <img class="rounded img-thumbnail" src="{{ asset('img/upload/ava-post/'.$r->img) }}" alt="{{ $r->title }}">
                                 </a>
                             </div>

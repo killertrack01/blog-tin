@@ -99,7 +99,12 @@
 @endsection
 @section('script-section')
 <script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('plugins/ckfinder/ckfinder.js') }}"></script>
 <script>
-    CKEDITOR.replace('edit1');
+    CKEDITOR.replace('edit1', {
+        filebrowserBrowseUrl: '../../plugins/ckfinder/ckfinder.html',
+        filebrowserUploadUrl: '../../plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+    });
+</script>
 </script>
 @endsection

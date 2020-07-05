@@ -48,9 +48,11 @@
                   <td>{{ $p->user->name }}</td>
                   <td>{{ $p->created_at }}</td>
                   <td>{{ $p->updated_at }}</td>
-                  <td>{{ $p->status }}</td>
-                  <td><a href="{{ asset('admin/post/edit/'.$p->id) }}"><span class="btn btn-primary">sua lai</span></a></td>
-                  <td><a href="{{ asset('admin/post/delete/'.$p->id) }}" onclick="return confirm(' bạn có muốn xóa ko ?')"><span class="btn btn-danger">xoa nha</span></a></td>
+                  @if('$post->status=0')
+                  <td>Đã duyệt</td>
+                  @endif
+                  <td><a href="{{ asset('admin/post/edit/'.$p->id) }}"><i class="fas fa-tools"></i><b> Sửa</b></a></td>
+                  <td><a href="{{ asset('admin/post/delete/'.$p->id) }}" onclick="return confirm(' bạn có muốn xóa ko ?')"><i class="fas fa-trash-alt"></i><b> Xóa</b></a></td>
                 </tr>
                 @endforeach
               </tbody>

@@ -78,8 +78,12 @@ Route::group(['prefix' => 'admin/post'], function () {
     //delete post
     Route::get('delete/{id}','PostController@deletePost');
 });
-//cate detail
-Route::get('layouts/layout-detail', function (){
-     return view('layouts.layout-detail');
-});
 
+//config ckeditor
+Route::post('plugins/ckeditor/image_upload','PostController@upload')->name('upload');
+
+//cate detail list
+Route::get('listcate/cate-detail/{id}','CategoryController@cateDetail');
+
+//post detail
+Route::get('listcate/detail/{id}','PostController@detail');

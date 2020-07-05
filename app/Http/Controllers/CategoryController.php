@@ -1,17 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Category;
+use App\Post;
+use App\User;
 
 class CategoryController extends Controller
 {
 
     public function listCate()
     {
-        $Cate = Category::all();
-        return view('admin.category.list', ['cate' => $Cate]);
+        $cate = Category::all();
+        return view('admin.category.list', compact('cate'));
     }
 
     public function createCate()
@@ -32,13 +35,15 @@ class CategoryController extends Controller
             $request,
             [
                 'name' => 'required|min:2|max:100',
+                'name'=>'unique:category,name,'.$cate->id,
                 'description' => 'required',
             ],
             [
                 'name.required' => 'Bạn chưa nhập tên thể loại cho bài viết',
                 'name.min' => 'Tên thể loại phải đạt ít nhất 3 kí tự',
                 'name.max' => 'Tên thể loại không được vượt quá 100 kí tự',
-                'description.required'=>'Bạn chưa nhập mô tả',
+                'name.unique'=>'Tên đã tồn tại',
+                'description.required' => 'Bạn chưa nhập mô tả',
             ]
         );
         $cate->name = $request->name;
@@ -60,12 +65,16 @@ class CategoryController extends Controller
         $this->validate(
             $request,
             [
-                'cateName' => 'required|min:2|max:100'
+                'cateName' => 'required|min:2|max:100',
+                'cateName'=>'unique:category,name',
+                'description' => 'required',
             ],
             [
                 'cateName.required' => 'Bạn chưa nhập tên thể loại cho bài viết',
                 'cateName.min' => 'Tên thể loại phải đạt ít nhất 3 kí tự',
-                'cateName.max' => 'Tên thể loại không được vượt quá 100 kí tự'
+                'cateName.max' => 'Tên thể loại không được vượt quá 100 kí tự',
+                'cateName.unique'=>'Tên đã tồn tại',
+                'description.required' => 'Bạn chưa nhập mô tả',
             ]
         );
         $Cate = new Category;
@@ -74,5 +83,12 @@ class CategoryController extends Controller
         $Cate->save();
 
         return redirect('admin/category/create')->with('alert', 'Thêm thành công');
+    }
+
+    public function cateDetail(Request $request,$id)
+    {
+        $catemain = Category::find($id);
+        $post = Post::where('category_id', $id)->paginate(5);
+        return view('listcate.cate_detail', compact('catemain','post'));
     }
 }

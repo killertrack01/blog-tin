@@ -2,6 +2,7 @@
 @extends('admin.layout.master')
 @section('title', 'Sửa Admin')
 @section('content')
+@if( Auth::user()->role =='2')
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -40,21 +41,6 @@
                                     <label><h4>Số điện thoại</h4></label>
                                     <input type="text" class="form-control" id="admin_tel_edit" name="admin_tel_edit" placeholder="Nhập số điện thoại Admin">
                                 </div>
-                                <label for="image"><h4>Avata</h4></label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="image_admin_edit" name="image_admin_edit">
-                                            <label class="custom-file-label" for="image">Chọn ảnh</label>
-                                        </div>
-                                    </div>
-                                <div class="form-group">
-                                    <label>Phân công</label>
-                                    <div class="controls">
-                                        <select tabindex="1" name="admin_status" id="admin_status_edit" data-placeholder="Chọn trạng thái.." class="span8">
-                                            <option value="">Chọn ở đây..</option>
-                                        </select>
-                                    </div>
-                                </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
@@ -67,6 +53,31 @@
             </div>
         </div>
     </section>
+    @else
+
+<style>
+  @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+  .isa_error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+    margin: 10px 0px;
+    padding: 12px;
+    font-size: 2em;
+    vertical-align: middle;
+  }
+</style>
+<section class="content">
+  <div class="contaner">
+    <div class="col-12">
+      <div class="isa_error">
+        <i class="fa fa-warning"></i>
+        BẠN KHÔNG CÓ QUYỀN XEM PHẦN NÀY!!!
+      </div>
+    </div>
+  </div>
+</section>
+@endif
 @endsection
 @section('script-section')
 

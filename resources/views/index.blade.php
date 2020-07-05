@@ -3,99 +3,23 @@
 <section>
   <style>
 /* Type */
-
-
-/* Box */
-
-	.thumbnails {
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-		-moz-align-items: stretch;
-		-webkit-align-items: stretch;
-		-ms-align-items: stretch;
-		align-items: stretch;
-		-moz-justify-content: center;
-		-webkit-justify-content: center;
-		-ms-justify-content: center;
-		justify-content: center;
-		-moz-flex-wrap: wrap;
-		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-	}
-
-		.thumbnails .box {
-			margin: 0 1em 2em 1em;
-			width: 22%;
-		}
-
-			@media screen and (max-width: 1280px) {
-
-				.thumbnails .box {
-					width: 45%;
-				}
-
-			}
-
-			@media screen and (max-width: 736px) {
-
-				.thumbnails .box {
-					width: 100%;
-				}
-
-			}
-
-
-/* Box */
-
-	.box {
-		border-radius: 4px;
-		margin-bottom: 2em;
-		background: #2c2c32;
-		text-align: center;
-            border-radius: 4px;
-		border: solid 1px;
-		padding: 1.5em;
-	}
-
-		.box > :last-child,
-		.box > :last-child > :last-child,
-		.box > :last-child > :last-child > :last-child {
-			margin-bottom: 0;
-		}
-
-		.box .image.fit {
-      margin: 0;
-      height:auto;
-	  
-		}
-
-		.box .image img {
-			border-radius: 4px 4px 0 0;
-		}
-
-		.box .inner {
-			padding: 1.5em;
-			width: 100% !important;
-		}
-
-			@media screen and (max-width: 480px) {
-
-				.box .inner {
-					padding: 1em;
-				}
-
-			}
-
-		.box.alt {
-			border: 0;
-			border-radius: 0;
-			padding: 0;
-		}
-
-
+h1,h2,h3,dt.uppercaseText {
+      text-transform: uppercase;
+      }
+      a:link, a:visited {
+      color: (internal value);
+      text-decoration: none;
+      } 
+      h1.tag{
+            display:inline;
+      }
+      big{
+            font-size: 140%;
+            color:yellow;
+      }
+	  .card{
+		height:600px;
+	  }
 /* Image */
 
 	.image {
@@ -294,75 +218,37 @@
 			.button.style3:active {
 				background-color: #8f6bc9;
 			}
-		}
-/* Banner */
-/* Box */
-
-.box {
-		border-radius: 4px;
-		border: solid 1px;
-		margin-bottom: 2em;
-		padding: 1.5em;
-	}
-
-		.box > :last-child,
-		.box > :last-child > :last-child,
-		.box > :last-child > :last-child > :last-child {
-			margin-bottom: 0;
-		}
-
-		.box.alt {
-			border: 0;
-			border-radius: 0;
-			padding: 0;
-		}
-
-	.box {
-		border-color: rgba(0, 0, 0, 0.1);
-	}
-/* Flex */
-
-	/* Image */
-
-	
-
-			
-
-      h1,h2,h3,dt.uppercaseText {
-      text-transform: uppercase;
-      }
-      a:link, a:visited {
-      color: (internal value);
-      text-decoration: none;
-      } 
-      h1.tag{
-            display:inline;
-      }
-      big{
-            font-size: 140%;
-            color:yellow;
-      }
+		}		
+     
   </style>
+  <marquee style="">Chào mừng đến với Nohope.com nơi cập nhật các thông tin mới nhất về công nghệ</marquee>
   <div class="container-fluid">
-      <div class="thumbnails">
-    @foreach($cate as $row)
+  <span><dt class="uppercaseText"><h1><big>*</big><b><a >Những Thông Tin Mới Nhất</a></b></h1></dt></span> 
+	  <div class="row">
+    @foreach($cate as $rows)
 		@foreach($post as $r)
-		      @if($row->id==$r->category_id)
-                  @if($row->status==0)
-                  <div class="box">
-                        <a  class="image fit"><img src="{{ asset('img/upload/ava-post/'.$r->img) }}" height=200 /></a>
-                        <div class="inner">
-                              <h3 class="uppercaseText">{{ $r->title }}</h3>
-                              <p>{{ $r->summary }}</p>
-                              <a  class="button fit">Xem Thêm</a>
-                        </div>
-                  </div>
+		      @if($rows->id==$r->category_id)
+                  @if($rows->status==0)
+					<div class="col-md-3">
+					<div class="card">
+							<div class="card-title">
+							<a  class="image fit"><img src="{{ asset('img/upload/ava-post/'.$r->img) }}" height=200 /></a>
+							</div>
+							<div class="card-body">
+									<div class="inner">
+										<h3 class="uppercaseText"><a href="#">{{ $r->title }}</a></h3>
+										<p>{{ $r->summary }}</p> 
+									</div>
+							</div>
+					</div>	
+					</div>
                   @break
                   @endif
 		@endif
 		@endforeach
 	@endforeach
-      </div>
+	</div>
+      
             <div>
                   <?php $check =1; ?>
                   @foreach($cate as $row)

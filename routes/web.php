@@ -15,18 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // insert data
-Route::get('/','DataController@insertData')->name('home');
+//Route::get('/','DataController@insertData')->name('home');
 Route::get('/info', 'InfoController@info')->name('info');
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@insertData')->name('home');
 //Route::get('admin/index', 'AdminController@index');
 Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('admin/index', 'AdminController@index')->name('admin');
 
     Route::get('admin/control-admin/list', 'AdminController@listAdmin');
     Route::delete('/delete-admin/{id}', 'AdminController@deleteAdmin');
-    Route::get('admin/control-admin/create', 'AdminController@createAdmin');
+    Route::get('admin/control-admin/create', 'AdminController@createAdmin')->name('addadmin');
     Route::get('admin/control-admin/edit', 'AdminController@editAdmin');
 
     Route::get('admin/feedback/list', 'FeedbackController@listFeedback');

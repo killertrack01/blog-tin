@@ -5,25 +5,29 @@
 <div class="container">
 
   <!-- Page Heading -->
-  <h1 class="my-4">{{ $catemain->name }}</h1>
-  <small>{{ $catemain->description }}</small>
+  <div class="row">
+    <div class="col-xl-5">
+      <h2 class="my-4">{{ $catemain->name }} <small>{{ $catemain->description }}</small></h2>
+    </div>
+  </div>
   @foreach($post as $p)
   <!-- Project One -->
   <div class="row">
-    <div class="col-md-7">
-      <img class="img-fluid rounded mb-3 mb-md-0" width="250" src="{{ asset('img/upload/ava-post/'.$p->img) }}" alt="{{ $p->title }}">
+    <div class="col-md-4">
+      <img class="img-fluid rounded " width="250" src="{{ asset('img/upload/ava-post/'.$p->img) }}" alt="{{ $p->title }}">
     </div>
-    <div class="col-md-5">
+    <div class="col-md-8">
       <h3>{{ $p->title }}</h3>
       <p>{{ $p->summary }}</p>
-      <p>{{ $p->author }}</p>
-      <a class="btn btn-primary" href="#">View Project</a>
+      <small> được viết bởi: {{ $p->author }} </small>
+      <br>
+      <a class="btn btn-secondary" href="{{ url('listcate/detail/'.$p->id) }}">Xem bài viết</a>
     </div>
   </div>
   <!-- /.row -->
   <hr>
   @endforeach
-
+{{ $post->links() }}
 </div>
 <!-- /.container -->
 @endsection

@@ -36,8 +36,8 @@
             <td>{{$c->description}}</td>
             <td>{{$c->created_at}}</td>
             <td>{{$c->updated_at}}</td>
-            <td><a href="{{ asset('admin/category/edit/'.$c->id) }}"><span class="btn btn-primary">sua lai</span></a></td>
-            <td><a href="{{ asset('admin/category/delete/'.$c->id) }}" onclick="return confirm(' bạn có muốn xóa ko ?')"><span class="btn btn-danger">xoa nha</span></a></td>
+            <td><a href="{{ asset('admin/category/edit/'.$c->id) }}"><i class="fas fa-tools"></i><b> Sửa</b></a></td>
+            <td><a href="{{ asset('admin/category/delete/'.$c->id) }}" onclick="return confirm(' bạn có muốn xóa ko ?')"><i class="fas fa-trash-alt"></i><b> Xóa</b> </a></td>
           </tr>
           @endforeach
         </tbody>

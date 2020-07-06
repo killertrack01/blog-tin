@@ -2,91 +2,87 @@
 @extends('admin.layout.master')
 @section('title', 'Thêm Admin')
 @section('content')
-@if( Auth::user()->role =='2')
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="offset-md-3 col-md-6">
-                    <!-- general form elements -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h2>Thêm Admin</h2>
-                        </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form role="form" action="#" method="post" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            <div class="card-body">
-                                    <form method="POST" action="{{ route('addadmin') }}">
-                                        @csrf
-                                        <div class="form-group row">
-                                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Họ & Tên') }}</label>
-
-                                            <div class="col-md-6">
-                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                                @error('name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
-
-                                            <div class="col-md-6">
-                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" value="{{ old('email') }}" required autocomplete="email">
-
-                                                @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mật khẩu') }}</label>
-
-                                            <div class="col-md-6">
-                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                                @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Nhập Lại Mật Khẩu') }}</label>
-
-                                            <div class="col-md-6">
-                                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row mb-0">
-                                            <div class="col-md-6 offset-md-4">
-                                                <button type="submit" class="btn btn-primary">
-                                                    {{ __('Tạo Tài Khoản') }}
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                            </div>
-                            <!-- /.card-body -->
-                        </form>
-                    </div>
-                    <!-- /.card -->
-                </div>
+@if( Auth::user()->role =='2' )
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Thêm người dùng thành Admin</h3>
+            @if (session('status'))
+            <div class="alert alert-success" role="alert">
+              {{ session('status') }}
             </div>
+            @endif
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="listadmin" class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Email Admin</th>
+                  <th>Họ Tên</th>
+                  <th>Ngày Sinh</th>
+                  <th>Tel</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tbody>
+                @foreach ($users as $row)
+                @if ($row->role=='1')
+                <tr>
+                  <td>{{ $row->id }}</td>
+                  <td>{{ $row->email }}</td>
+                  <td>{{ $row->name }}</td>
+                  <td>{{ $row->dob }}</td>
+                  <td>{{ $row->tel }}</td>
+                  <td class="text-center">
+                    <form action="/admin/control-admin/create/{{ $row->id }}" method="Post">
+                      {{ csrf_field() }}
+                      {{ method_field('PUT') }}
+                      <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-unlock"> Thêm admin</i></button>
+                      <!-- Modal -->
+                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Cảnh Báo Thêm Admin !!!</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              Bạn có chắc muốn thêm người dùng này thành Admin ?
+                            </div>
+                            <div class="modal-footer">
+                              <button type="submit" class="btn btn-success">Thêm</button>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </td>
+                </tr>
+                @endif
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
         </div>
-    </section>
-    @else
+        <!-- /.card -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
+</section>
+@else
 
 <style>
   @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -111,7 +107,4 @@
   </div>
 </section>
 @endif
-@endsection
-@section('script-section')
-
 @endsection

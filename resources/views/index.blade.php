@@ -4,50 +4,20 @@
   <style>
 /* Type */
 
-
-/* Box */
-
-	.thumbnails {
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-		-moz-align-items: stretch;
-		-webkit-align-items: stretch;
-		-ms-align-items: stretch;
-		align-items: stretch;
-		-moz-justify-content: center;
-		-webkit-justify-content: center;
-		-ms-justify-content: center;
-		justify-content: center;
-		-moz-flex-wrap: wrap;
-		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-	}
-
-		.thumbnails .box {
-			margin: 0 1em 2em 1em;
-			width: 22%;
-		}
-
-			@media screen and (max-width: 1280px) {
-
-				.thumbnails .box {
-					width: 45%;
-				}
-
-			}
-
-			@media screen and (max-width: 736px) {
-
-				.thumbnails .box {
-					width: 100%;
-				}
-
-			}
-
-
+      h1,h2,h3,dt.uppercaseText {
+      text-transform: uppercase;
+      }
+      a:link, a:visited {
+      color: (internal value);
+      text-decoration: none;
+      } 
+      h1.tag{
+            display:inline;
+      }
+      big{
+            font-size: 140%;
+            color:yellow;
+      }
 /* Box */
 
 	.box {
@@ -58,6 +28,7 @@
             border-radius: 4px;
 		border: solid 1px;
 		padding: 1.5em;
+		height:500px;	
 	}
 
 		.box > :last-child,
@@ -103,7 +74,6 @@
 		border: 0px;
 		display: inline-block;
 		position: relative;
-            box-s
 	}
 
 		.image img {
@@ -320,42 +290,25 @@
 	.box {
 		border-color: rgba(0, 0, 0, 0.1);
 	}
-/* Flex */
-
-	/* Image */
-
-	
-
-			
-
-      h1,h2,h3,dt.uppercaseText {
-      text-transform: uppercase;
-      }
-      a:link, a:visited {
-      color: (internal value);
-      text-decoration: none;
-      } 
-      h1.tag{
-            display:inline;
-      }
-      big{
-            font-size: 140%;
-            color:yellow;
-      }
   </style>
   <div class="container-fluid">
-      <div class="thumbnails">
+  <marquee >Chào mừng đến với Nohope.com nơi cập nhật tin tức công nghệ mới nhất</marquee>
+      <div class="row">
     @foreach($cate as $row)
 		@foreach($post as $r)
 		      @if($row->id==$r->category_id)
                   @if($row->status==0)
-                  <div class="box">
+                  <div class="col-md-3">
+				  		<div class="box">
+						  
+						 
                         <a  class="image fit"><img src="{{ asset('img/upload/ava-post/'.$r->img) }}" height=200 /></a>
-                        <div class="inner">
-                              <h3 class="uppercaseText">{{ $r->title }}</h3>
+                        <div class="">
+                              <h3 class="uppercaseText"><a href="{{ url('listcate/detail/'.$r->id) }}">{{ $r->title }}</a></h3>
                               <p>{{ $r->summary }}</p>
-                              <a  class="button fit">Xem Thêm</a>
+                              
                         </div>
+						</div>
                   </div>
                   @break
                   @endif
@@ -370,13 +323,12 @@
 				  @foreach($post as $rr)
 				  @if($rr->category_id==$row->id)
                   <div class="mt-3">
-                  <span><dt class="uppercaseText"><h1><big>|</big><b><a href="">{{$row->name}}</a></b></h1></dt></span>
+                  <span><dt class="uppercaseText"><h1><big>|</big><b><a href="{{ url('listcate/cate-detail/'.$row->id) }}">{{$row->name}}</a></b></h1></dt></span>
                   </div>
 				  <hr class="my-4">
 				  @break
 				  @endif
 				  @endforeach
-                  
                         @foreach($post as $r)
                               @if($checkcat==5)
                               @break
@@ -394,8 +346,10 @@
                                                                               </div>
                                                                               <div class="col-md-6">
                                                                                     <h3 class="uppercaseText">{{ $r->title }}</h3>
+																					<p><small>{{ $r->created_at}} </small></p>
                                                                                     <p>{{ $r->summary }}</p>
-                                                                                    <a href="#" class="button">Learn More</a>
+																					
+                                                                                    <a href="{{ url('listcate/detail/'.$r->id) }}" class="button">Learn More</a>
                                                                               </div>
                                                                   </div>
                                                             </div>
@@ -408,8 +362,10 @@
                                                             <div class="row">
                                                                   <div class="col-md-6">
                                                                         <h3 class="uppercaseText">{{ $r->title }}</h3>
+																		<p><small>{{ $r->created_at }} </small><small> By </small></p>
                                                                         <p>{{ $r->summary }}</p>
-                                                                        <a href="#" class="button">Learn More</a>
+																		
+                                                                        <a href="{{ url('listcate/detail/'.$r->id) }}" class="button">Learn More</a>
                                                                   </div>
                                                                   <div class="col-md-6">
                                                                         <div class="image fit">
@@ -428,7 +384,7 @@
                         @endforeach
 						@foreach($post as $rr)
 				 		@if($rr->category_id==$row->id)
-						 <span><dt class="text-center"><b><a href="">Xem Thêm...</a></b></dt></span>
+						 <span><dt class="text-center"><b><a href="{{ url('listcate/cate-detail/'.$row->id) }}">Xem Thêm...</a></b></dt></span>
 						@break
 						@endif
 						@endforeach	

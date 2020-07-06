@@ -18,10 +18,6 @@ class InfoController extends Controller
         $users = User::findOrFail($id);
         return view('user.updateIF')->with('users',$users); 
     }
-    public function post()
-    {
-        return view('user.postUser');
-    }
     public function updateuser(Request $request, $id)
     {
         $this->validate(

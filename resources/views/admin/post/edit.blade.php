@@ -47,10 +47,9 @@
                             @foreach($cate as $c)
 
 
-                            <option 
-                            @if( $post ->cate->id == $c->id)
+                            <option @if( $post ->cate->id == $c->id)
                                 {{"selected"}}
-                            @endif
+                                @endif
                                 value="{{ $c->id }}" >{{ $c->name }}
                             </option>
                             @endforeach
@@ -103,7 +102,11 @@
 <script>
     CKEDITOR.replace('edit1', {
         filebrowserBrowseUrl: '../../plugins/ckfinder/ckfinder.html',
-        filebrowserUploadUrl: '../../plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+        filebrowserImageBrowseUrl: '../../plugins/ckfinder/ckfinder.html?type=Images',
+        filebrowserFlashBrowseUrl: '../../plugins/ckfinder/ckfinder.html?type=Flash',
+        filebrowserUploadUrl: '../../plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl: '../../plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        filebrowserFlashUploadUrl: '../../plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
     });
 </script>
 </script>

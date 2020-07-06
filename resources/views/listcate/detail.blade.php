@@ -5,7 +5,7 @@
         <div class="col-xl-9">
             <h1>{{ $post->title }}</h1>
             <p class="lead">
-                Người đăng: <b>{{ $post->author }}</b>
+                Người đăng: <b>{{ $post->user->name }}</b>
                 <p><i class="far fa-clock"></i> Đăng vào lúc: {{ $post->created_at }}</p>
             </p>
             <hr>

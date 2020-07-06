@@ -109,5 +109,4 @@
         filebrowserFlashUploadUrl: '../../plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
     });
 </script>
-</script>
-@endsection
+@endsection 

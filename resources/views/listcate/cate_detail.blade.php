@@ -19,7 +19,7 @@
     <div class="col-md-8">
       <h3>{{ $p->title }}</h3>
       <p>{{ $p->summary }}</p>
-      <small> được viết bởi: {{ $p->author }} </small>
+      <small> được viết bởi: {{ $p->user->name }} </small>
       <br>
       <a class="btn btn-secondary" href="{{ url('listcate/detail/'.$p->id) }}">Xem bài viết</a>
     </div>

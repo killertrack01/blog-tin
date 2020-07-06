@@ -20,7 +20,7 @@
       <div class="row">
         <div class="col-xl-12">
           <div class="table-responsive-xl">
-            <table id="listpost" class="table table-light">
+            <table id="listpost" class="table table-bordered">
               <thead>
                 <tr>
                   <th>#ID</th>

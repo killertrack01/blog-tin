@@ -304,7 +304,7 @@
 						 
                         <a  class="image fit"><img src="{{ asset('img/upload/ava-post/'.$r->img) }}" height=200 /></a>
                         <div class="">
-                              <h3 class="uppercaseText"><a href="{{ url('listcate/detail/'.$r->id) }}">{{ $r->title }}</a></h3>
+                              <h3 class="uppercaseText "><a class="text-secondary" href="{{ url('listcate/detail/'.$r->id) }}">{{ $r->title }}</a></h3>
                               <p>{{ $r->summary }}</p>
                               
                         </div>
@@ -346,10 +346,10 @@
                                                                               </div>
                                                                               <div class="col-md-6">
                                                                                     <h3 class="uppercaseText">{{ $r->title }}</h3>
-																					<p><small>{{ $r->created_at}} </small></p>
+																					<p><small>{{ $r->created_at}} </small><small> Đăng bởi @foreach($user as $i) @if( $i->id == $r->users_id)  {{ $i->name }} @break @endif @endforeach </small></p>
                                                                                     <p>{{ $r->summary }}</p>
 																					
-                                                                                    <a href="{{ url('listcate/detail/'.$r->id) }}" class="button">Learn More</a>
+                                                                                    <a href="{{ url('listcate/detail/'.$r->id) }}" class="button">Đọc Thêm</a>
                                                                               </div>
                                                                   </div>
                                                             </div>
@@ -362,10 +362,10 @@
                                                             <div class="row">
                                                                   <div class="col-md-6">
                                                                         <h3 class="uppercaseText">{{ $r->title }}</h3>
-																		<p><small>{{ $r->created_at }} </small><small> By </small></p>
+																		<p><small>{{ $r->created_at }} </small><small> Đăng bởi @foreach($user as $i) @if( $i->id == $r->users_id)  {{ $i->name }} @break @endif @endforeach </small></p>
                                                                         <p>{{ $r->summary }}</p>
 																		
-                                                                        <a href="{{ url('listcate/detail/'.$r->id) }}" class="button">Learn More</a>
+                                                                        <a href="{{ url('listcate/detail/'.$r->id) }}" class="button">Đọc Thêm</a>
                                                                   </div>
                                                                   <div class="col-md-6">
                                                                         <div class="image fit">

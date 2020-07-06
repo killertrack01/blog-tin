@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Post;
+use App\User;
 
 class DataController extends Controller
 {
@@ -12,7 +13,7 @@ class DataController extends Controller
     {
         $cate = Category::all();
         $post = Post::with('cate')->orderByDesc('updated_at')->get();
-        
-        return view('index',compact('cate','post'));
+        $user = User::all();
+        return view('index',compact('cate','post','user'));
     }
 }

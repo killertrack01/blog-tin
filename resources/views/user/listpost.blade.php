@@ -29,7 +29,7 @@
                     <th>Ảnh bìa</th>
                     <th>Ngày đăng</th>
                     <th>Trạng thái</th>
-                    <th></th>
+                    
                   </tr>
                   </thead>
                   <tbody>
@@ -71,7 +71,7 @@
                     <th>Ảnh bìa</th>
                     <th>Ngày đăng</th>
                     <th>Trạng thái</th>
-                    <th></th>
+                    
                   </tr>
                   </tfoot>
                 </table>
@@ -102,6 +102,7 @@
                   <tr>
                     <th>STT</th>
                     <th>Tiêu đề</th>
+                    <th>Thể loại</th>
                     <th>Tác giả</th>
                     <th>Tóm tắt</th>
                     <th>Ảnh bìa</th>
@@ -115,6 +116,13 @@
                 <tr class="odd gradeX">
                     <td width="3%">{{$keys}}</td>
                     <td>{{$vals->title}}</td>
+                    <td>
+                      @foreach($cate as $c)
+                      @if(isset($vals->category_id) && $c->id == $vals->category_id)
+                        {{$c->name}}
+                      @endif
+                      @endforeach
+                    </td>
                     <td>{{$vals->author}}</td>
                     <td width="20%"><p>{{$vals->summary}}</p></td>
                     <td><img src="{{url('img/upload/ava-post/'.$vals->img)}}" width="100px" height="100px"></td>
@@ -128,7 +136,8 @@
                         @endif
                     </td>
                     <td width="7%">
-                        <button type="button"><a href="{{route('userposted',$vals->id)}}">Chi tiết</a></button>
+                        <button type="button"><a href="{{route('home.get.content',$vals->id)}}">Chi tiết</a></button>
+                        
                     </td>
                 </tr>
                 @endforeach

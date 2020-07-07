@@ -36,15 +36,15 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     Route::get('admin/comment/list', 'CommentController@listCmt');
 
-   //Admin duyệt post
-Route::get('admin/userpost/list', 'UserPostController@listUPost')->name('listuserpost');
-Route::post('admin/userpost/list', 'UserPostController@getListUPost')->name('getListUPost');
+    //Admin duyệt post
+    Route::get('admin/userpost/list', 'UserPostController@listUPost')->name('listuserpost');
+    Route::post('admin/userpost/list', 'UserPostController@getListUPost')->name('getListUPost');
 
-Route::get('admin/userpost/detail/{id}', 'UserPostController@detail')->name('userpost');
-Route::get('userpost/update/{id}','UserPostController@updateStatus')->name('AdminUpdateStatus');
+    Route::get('admin/userpost/detail/{id}', 'UserPostController@detail')->name('userpost');
+    Route::get('userpost/update/{id}','UserPostController@updateStatus')->name('AdminUpdateStatus');
 
-Route::get('userpost/delete/{id}','UserPostController@deletePost')->name('AdmindeletePost');
-//
+    Route::get('userpost/delete/{id}','UserPostController@deletePost')->name('AdmindeletePost');
+    //
     Route::get('admin/member/list', 'MemberController@listMem');
     Route::delete('/delete/{id}', 'MemberController@deleteMember');
     Route::get('/updateIF/{id}', 'InfoController@update')->name('update');
@@ -52,19 +52,6 @@ Route::get('userpost/delete/{id}','UserPostController@deletePost')->name('Admind
 });
 Route::get('/contact', 'InfoController@contact')->name('contact');
 
-//User đăng bài
-Route::get('/listpost','UserPostController@listpost')->name('listpost');
-Route::post('/listpost','UserPostController@getListPost')->name('getList');
-
-Route::get('/postUser','UserPostController@post')->name('post');
-Route::post('/postUser','UserPostController@postCreate')->name('postCreate');
-
-Route::get('/edit/{id}','UserPostController@edit')->name('edit');
-Route::post('/edit/{id}','UserPostController@postEdit')->name('postEdit');
-
-Route::get('/delete/{id}','UserPostController@UserdeletePost')->name('deletePost');
-Route::get('/detailupost/{id}', 'UserPostController@detailUPost')->name('userposted');
-//
 Route::get('/feedback', 'InfoController@feedback')->name('feedback');
 Route::get('/about-us', 'AboutController@about');
 
@@ -109,3 +96,20 @@ Route::get('listcate/cate-detail/{id}','CategoryController@cateDetail');
 
 //post detail
 Route::get('listcate/detail/{id}','PostController@detail');
+
+
+//User đăng bài
+Route::get('/listpost','UserPostController@listpost')->name('listpost');
+Route::post('/listpost','UserPostController@getListPost')->name('getList');
+
+Route::get('/postUser','UserPostController@post')->name('post');
+Route::post('/postUser','UserPostController@postCreate')->name('postCreate');
+
+Route::get('/edit/{id}','UserPostController@edit')->name('edit');
+Route::post('/edit/{id}','UserPostController@postEdit')->name('postEdit');
+
+Route::get('/{tit}','UserPostController@getContent')->name('home.get.content');
+
+Route::get('/delete/{id}','UserPostController@UserdeletePost')->name('deletePost');
+Route::get('/detailupost/{id}', 'UserPostController@detailUPost')->name('userposted');
+//

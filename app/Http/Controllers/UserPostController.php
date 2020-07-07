@@ -20,11 +20,17 @@ class UserPostController extends Controller
         return view('admin.userpost.list',['posts'=> $posts])->with('user',$user);
     }
 
-    public function detail($id)
+    public function detail($tit)
     {
-        $cate = Category::all();
-        $posts = UPost::find($id);
-        return view('admin.userpost.detail',['posts'=>$posts,'cate'=>$cate]);
+        $id = "";
+        $posts = DB::table('post')->where('id','=',$tit)->get();
+        foreach($posts as $val){
+            $id = $val->id;
+            $n = UPost::find($id);
+            $n->save();
+        }
+        $user = DB::table('users')->get();
+        return view('admin.userpost.detail',['posts' => $posts , 'user' => $user]);
         
     }
 
@@ -70,7 +76,7 @@ class UserPostController extends Controller
             'uNoidung' => 'required',
             'uAuthor' => 'bail|required|string|min:2|max:20',
             'uCategory' => 'required',
-            'uImage' => 'bail|file|image|mimes:jpeg,png,jpg|max:10240',
+            'uImage' => 'bail|file|required|image|mimes:jpeg,png,jpg|max:10240',
         ],[
             'uTitle.required' => 'Vui lòng nhập tên tiêu đề',
             'uTitle.min' => 'Độ dài Tiêu đề ít nhất 10 ký tự',
@@ -225,6 +231,18 @@ class UserPostController extends Controller
         $posts = UPost::find($id);
         return view('user.detailupost',['posts'=>$posts,'cate'=>$cate]);
         
+    }
+
+    public function getContent($tit){
+    	$id = "";
+        $post = DB::table('post')->where('id','=',$tit)->get();
+        foreach($post as $val){
+            $id = $val->id;
+            $n = UPost::find($id);
+            $n->save();
+        }
+        $user = DB::table('users')->get();
+        return view('user.content',['post' => $post , 'user' => $user]);
     }
 
 }

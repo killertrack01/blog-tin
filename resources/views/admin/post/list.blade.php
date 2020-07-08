@@ -48,10 +48,15 @@
                   <td>{{ $p->user->name }}</td>
                   <td>{{ $p->created_at }}</td>
                   <td>{{ $p->updated_at }}</td>
-                  @if('$post->status=0')
+                  @if($post->status==1)
                   <td>Đã duyệt</td>
                   @endif
+
+                  @if($post->users_id==($id=auth()->user()->id))
                   <td><a href="{{ asset('admin/post/edit/'.$p->id) }}"><i class="fas fa-tools"></i><b> Sửa</b></a></td>
+                  @else
+                  <td></td>
+                  @endif
                   <td><a href="{{ asset('admin/post/delete/'.$p->id) }}" onclick="return confirm(' bạn có muốn xóa ko ?')"><i class="fas fa-trash-alt"></i><b> Xóa</b></a></td>
                 </tr>
                 @endforeach

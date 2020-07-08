@@ -98,6 +98,8 @@ Route::get('listcate/cate-detail/{id}','CategoryController@cateDetail');
 
 //post detail
 Route::get('listcate/detail/{id}','PostController@detail');
+//search post
+Route::post('listcate/search','PostController@search');
 
 //User đăng bài
 Route::get('/listpost','UserPostController@listpost')->name('listpost');

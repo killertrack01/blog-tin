@@ -67,7 +67,7 @@
                     <!--img post-->
                     <div class="form-group offset-xl-2 col-xl-6">
                         <label>Chi tiết bài viết</label>
-                        <textarea name="detail" id="edit1" class="form-control">
+                        <textarea name="detail" id="edit2" class="form-control">
                         {{ $post->detail }}
                         </textarea>
                     </div>
@@ -100,13 +100,14 @@
 <script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('plugins/ckfinder/ckfinder.js') }}"></script>
 <script>
-    CKEDITOR.replace('edit1', {
-        filebrowserBrowseUrl: '../../plugins/ckfinder/ckfinder.html',
-        filebrowserImageBrowseUrl: '../../plugins/ckfinder/ckfinder.html?type=Images',
-        filebrowserFlashBrowseUrl: '../../plugins/ckfinder/ckfinder.html?type=Flash',
-        filebrowserUploadUrl: '../../plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-        filebrowserImageUploadUrl: '../../plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-        filebrowserFlashUploadUrl: '../../plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+    CKEDITOR.replace('edit2', {
+        filebrowserBrowseUrl: '../../../plugins/ckfinder/ckfinder.html',
+        filebrowserImageBrowseUrl: '../../../plugins/ckfinder/ckfinder.html?type=Images',
+        filebrowserFlashBrowseUrl: '../../../plugins/ckfinder/ckfinder.html?type=Flash',
+        filebrowserUploadUrl: '../../../plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl: '../../../plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        filebrowserFlashUploadUrl: '../../../plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+        disallowedContent : 'img{width,height}'
     });
 </script>
 @endsection 

@@ -39,8 +39,9 @@
     </div>
     <hr>
     <div class="row">
-        <div class="offset-xl-3 col-xl-5">
-            <p> {!! $post->detail !!}</p>
+        <div class="col-md-6">
+            <div class="content-detail"> {!! $post->detail !!}</div>
+            <!-- <p> {!! $post->detail !!}</p> -->
         </div>
     </div>
 </div>

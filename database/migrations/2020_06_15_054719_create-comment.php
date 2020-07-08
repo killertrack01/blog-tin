@@ -19,6 +19,7 @@ class CreateComment extends Migration
             $table->timestamp('created_at');
             $table->timestamp('updated_at')->nullable();
             $table->integer('post_id')->unsigned();
+            $table->integer('users_id')->unsigned();
         });
     }
 

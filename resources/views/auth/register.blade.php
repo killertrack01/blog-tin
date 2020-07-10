@@ -1,14 +1,6 @@
 @extends('layouts.app')
 @section('title','Đăng kí')
 @section('content')
-<style>
-     @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
-    .topbar,html,body,nav{
-    font-family: sans-serif;
-    background: url(/images/login.jpg) no-repeat;
-    background-size: cover;
-    }
-</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

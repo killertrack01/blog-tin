@@ -28,7 +28,7 @@
             border-radius: 4px;
 		border: solid 1px;
 		padding: 1.5em;
-		height:500px;	
+		height:700px;	
 	}
 
 		.box > :last-child,
@@ -293,39 +293,73 @@
   </style>
   <div class="container-fluid">
   <marquee >Chào mừng đến với Nohope.com nơi cập nhật tin tức công nghệ mới nhất</marquee>
-      <div class="row">
-    @foreach($cate as $row)
-		@foreach($post as $r)
-		      @if($row->id==$r->category_id)
-                  @if($row->status==0)
-                  <div class="col-md-3">
-				  		<div class="box">
-						  
-						 
-                        <a  class="image fit"><img src="{{ asset('img/upload/ava-post/'.$r->img) }}" height=200 /></a>
-                        <div class="">
-                              <h3 class="uppercaseText "><a class="text-secondary" href="{{ url('listcate/detail/'.$r->id) }}">{{ $r->title }}</a></h3>
-                              <p>{{ $r->summary }}</p>
-                              
-                        </div>
-						</div>
-                  </div>
-                  @break
-                  @endif
-		@endif
-		@endforeach
-	@endforeach
-      </div>
+  <?php $i=0 ?>
+							<div class="bd-example">
+							<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+								<ol class="carousel-indicators">
+								@foreach($post as $r)
+								@if($r->status==1)
+									@if($i==0)
+									<li data-target="#carouselExampleCaptions" data-slide-to="<?php $i++ ?>" class="active"></li>
+									@else
+									<li data-target="#carouselExampleCaptions" data-slide-to="<?php $i++ ?>"></li>
+									@endif
+								@endif
+									@if($i>5)
+									@break
+									@endif
+								@endforeach
+								</ol>
+								<?php $i=0 ?>
+								<div class="carousel-inner">
+								@foreach($post as $r)
+								@if($r->status==1)
+								@if($i==0)
+								<div class="carousel-item active">
+									<img src="{{ asset('img/upload/ava-post/'.$r->img) }}" class="d-block w-100" height=500>
+									<div class="carousel-caption d-none d-md-block text-white bg-dark">
+									<h3><a href="{{ url('listcate/detail/'.$r->id) }}">{{ $r->title }}</a></h3>
+									<p><h5><b>{{ $r->summary }}</b></h5></p>
+									</div>
+								</div>
+								<?php $i++ ?>
+								@else
+								<div class="carousel-item">
+									<img src="{{ asset('img/upload/ava-post/'.$r->img) }}" class="d-block w-100" height=500>
+									<div class="carousel-caption d-none d-md-block text-white bg-dark">
+									<h3><a href="{{ url('listcate/detail/'.$r->id) }}">{{ $r->title }}</a></h3>
+									<p><h5><b>{{ $r->summary }}</b></h5></p>
+									</div>
+								</div>
+								@endif
+								@endif
+								@if($i>5)
+									@break
+									@endif
+								@endforeach
+								</div>
+								<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+								</a>
+								<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+								</a>
+							</div>
+							</div>	
             <div>
                   <?php $check =1; ?>
                   @foreach($cate as $row)
                   <?php  $checkcat=0; ?>
 				  @foreach($post as $rr)
 				  @if($rr->category_id==$row->id)
+				  
                   <div class="mt-3">
                   <span><dt class="uppercaseText"><h1><big>|</big><b><a href="{{ url('listcate/cate-detail/'.$row->id) }}">{{$row->name}}</a></b></h1></dt></span>
                   </div>
 				  <hr class="my-4">
+				  
 				  @break
 				  @endif
 				  @endforeach
@@ -334,7 +368,7 @@
                               @break
                               @else
                                     @if($row->id==$r->category_id)
-                                          @if($r->status==0)
+                                          @if($r->status==1)
                                                 @if($check==1)
                                                 <section>
                                                             <div>
@@ -383,7 +417,7 @@
                               @endif
                         @endforeach
 						@foreach($post as $rr)
-				 		@if($rr->category_id==$row->id)
+				 		@if(($rr->category_id==$row->id)&&($rr->status==1))
 						 <span><dt class="text-center"><b><a href="{{ url('listcate/cate-detail/'.$row->id) }}">Xem Thêm...</a></b></dt></span>
 						@break
 						@endif
@@ -393,3 +427,6 @@
       </div>     
 </section>
 @endsection
+
+
+

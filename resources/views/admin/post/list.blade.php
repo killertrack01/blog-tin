@@ -48,11 +48,10 @@
                   <td>{{ $p->user->name }}</td>
                   <td>{{ $p->created_at }}</td>
                   <td>{{ $p->updated_at }}</td>
-                  @if($post->status==1)
+                  @if($p->status==1)
                   <td>Đã duyệt</td>
                   @endif
-
-                  @if($post->users_id==($id=auth()->user()->id))
+                  @if($p->users_id==($id=auth()->user()->id))
                   <td><a href="{{ asset('admin/post/edit/'.$p->id) }}"><i class="fas fa-tools"></i><b> Sửa</b></a></td>
                   @else
                   <td></td>

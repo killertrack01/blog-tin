@@ -81,7 +81,7 @@
                         <input type="text" class="form-control" name="name" value="{{ $u->name }}" readonly>
                         @endif
                         @endforeach
-                        <input type="hidden" name="status" value="0">
+                        <input type="hidden" name="status" value="1">
                     </div>
                     <div class="form-group col-xl-4"></div>
                     <!--submit-->

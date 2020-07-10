@@ -16,8 +16,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @foreach($cate as $c)
-                    <a class="dropdown-item" href="{{ url('listcate/cate-detail/'.$c->id) }}">{{ $c->name }}</a>       
-                    @endforeach     
+                    <a class="dropdown-item" href="{{ url('listcate/cate-detail/'.$c->id) }}">{{ $c->name }}</a>
+                    @endforeach
                 </div>
             </li>
             <li class="nav-item">
@@ -30,5 +30,10 @@
                 <a class="nav-link" href="{{ route('feedback')}}">Phản hồi</a>
             </li>
         </ul>
+        <form action="{{ asset('listcate/search') }}" method="post" class="form-inline my-2 my-lg-0">
+        {{ csrf_field() }}
+            <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Search">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
     </div>
 </nav>

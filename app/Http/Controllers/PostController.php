@@ -175,4 +175,11 @@ class PostController extends Controller
             ->get();
         return view('listcate.detail', ['post' => $post, 'relate' => $relate]);
     }
+    //Searching post
+    public function search(Request $request)
+    {
+        $keyword= $request->keyword;
+        $post =Post::where('title','like',"%$keyword%")->orWhere('summary','like',"%$keyword%")->take(15)->paginate(5);
+        return view('listcate.search',['post'=>$post,'keyword'=>$keyword]);
+    }
 }

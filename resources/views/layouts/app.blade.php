@@ -18,21 +18,16 @@
     <!--CSS file tên user-layout.css-->
     <link rel="stylesheet" href="{{ asset('user-layout.css') }}">
 </head>
+<header>
+    @include('layouts.topbar')
+    @include('layouts.nav-bar')
+</header>
 
-<body class="bg-light">
-    <div class="container-fuild">
-        <header>
-            @include('layouts\topbar')
-
-            @include('layouts\nav-bar')
-        </header>
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+<body class="bg-light"  >
+    @yield('content')
 </body>
 <footer>
-    @include('layouts\footer')
+    @include('layouts.footer')
 </footer>
 @yield('script')
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

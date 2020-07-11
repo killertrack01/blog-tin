@@ -30,7 +30,7 @@ class PostController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|min:3',
-            'sum' => 'required|min:10|max:255',
+            'sum' => 'required|min:10',
             'detail' => 'required',
             'cate' => 'required'
         ], [
@@ -38,7 +38,6 @@ class PostController extends Controller
             'txt-title.min' => 'Tiêu đề phải có ít nhất 3 kí tự',
             'sum.required' => 'Bạn chưa ghi tóm tắt nội dung',
             'sum.min' => 'Tóm tắt nội dung cần ít nhất 10 kí tự',
-            'sum.max' => 'Tóm tắt nội dung tối đa chỉ 255 kí tự',
             'detail.required' => 'Bạn chưa ghi bài viết',
             'cate.required' => 'Bạn chưa chọn loại tin'
         ]);
@@ -87,7 +86,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $this->validate($request, [
             'title' => 'required|min:3',
-            'sum' => 'required|min:10|max:255',
+            'sum' => 'required|min:10',
             'detail' => 'required',
             'cate' => 'required'
         ], [
@@ -95,7 +94,6 @@ class PostController extends Controller
             'txt-title.min' => 'Tiêu đề phải có ít nhất 3 kí tự',
             'sum.required' => 'Bạn chưa ghi tóm tắt nội dung',
             'sum.min' => 'Tóm tắt nội dung cần ít nhất 10 kí tự',
-            'sum.max' => 'Tóm tắt nội dung tối đa chỉ 255 kí tự',
             'detail.required' => 'Bạn chưa ghi bài viết',
             'cate.required' => 'Bạn chưa chọn loại tin'
         ]);
@@ -171,7 +169,7 @@ class PostController extends Controller
     public function detail($id)
     {
         $post = Post::find($id);
-        $relate = Post::where('category_id', $post->category_id)->take(3)
+        $relate = Post::where('category_id', $post->category_id)->where('status',1)->take(3)
             ->get();
         return view('listcate.detail', ['post' => $post, 'relate' => $relate]);
     }

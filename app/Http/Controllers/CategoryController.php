@@ -88,7 +88,7 @@ class CategoryController extends Controller
     public function cateDetail(Request $request,$id)
     {
         $catemain = Category::find($id);
-        $post = Post::where('category_id', $id)->paginate(5);
+        $post = Post::where('category_id', $id)->where('status',1)->paginate(5);
         return view('listcate.cate_detail', compact('catemain','post'));
     }
 }

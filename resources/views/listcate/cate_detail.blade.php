@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <!-- Page Content -->
-
 <div class="container">
 
   <!-- Page Heading -->
@@ -27,7 +26,12 @@
   <!-- /.row -->
   <hr>
   @endforeach
-{{ $post->links() }}
+  <div class="row">
+    <div class="col-xl-12 text-center">
+      {{ $post->links() }}
+    </div>
+  </div>
+
 </div>
 <!-- /.container -->
 @endsection

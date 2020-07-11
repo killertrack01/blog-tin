@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1bd39516-fbe9-48e1-856d-c36af79de1e5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/ckfinder/userfiles/images/90664(2).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/ckfinder/userfiles/images/90664(3).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/ckfinder/userfiles/images/90664(4).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/ckfinder/userfiles/images/90664(5).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/ckfinder/userfiles/images/90664(6).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/ckfinder/userfiles/images/Blog công nghệ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/ckfinder/userfiles/images/C__Data_Users_DefApps_AppData_INTERNETEXPLORER_Temp_Saved Images_OneDrive_20416163_20digital_version_20possible_duplicate_20tagme_20tatekawa_mako.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/ckfinder/core/connector/php/vendor/cksource/ckfinder" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/ckfinder/core/connector/php/vendor/cksource/ckfinder" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/post/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/post/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/post/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/post/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/post/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/post/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/topbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/topbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/listcate/cate_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listcate/cate_detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/listcate/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listcate/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/listcate/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listcate/search.blade.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1eTxGlO2P5LYbbFniFWNxytXqcW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1bd39516-fbe9-48e1-856d-c36af79de1e5" name="Default Changelist" comment="" />
+      <created>1594359291148</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594359291148</updated>
+    </task>
+    <servers />
+  </component>
+</project>

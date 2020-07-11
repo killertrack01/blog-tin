@@ -1,47 +1,39 @@
 @extends('layouts.app')
 @section('content')
 <section>
-	<style>
-		/* Type */
+  <style>
+/* Type */
 
-		h1,
-		h2,
-		h3,
-		dt.uppercaseText {
-			text-transform: uppercase;
-		}
+      h1,h2,h3,dt.uppercaseText {
+      text-transform: uppercase;
+      }
+      a:link, a:visited {
+      color: (internal value);
+      text-decoration: none;
+      } 
+      h1.tag{
+            display:inline;
+      }
+      big{
+            font-size: 140%;
+            color:yellow;
+      }
+/* Box */
 
-		a:link,
-		a:visited {
-			color: (internal value);
-			text-decoration: none;
-		}
+	.box {
+		border-radius: 4px;
+		margin-bottom: 2em;
+		background: #2c2c32;
+		text-align: center;
+            border-radius: 4px;
+		border: solid 1px;
+		padding: 1.5em;
+		height:700px;	
+	}
 
-		h1.tag {
-			display: inline;
-		}
-
-		big {
-			font-size: 140%;
-			color: yellow;
-		}
-
-		/* Box */
-
-		.box {
-			border-radius: 4px;
-			margin-bottom: 2em;
-			background: #2c2c32;
-			text-align: center;
-			border-radius: 4px;
-			border: solid 1px;
-			padding: 1.5em;
-			height: 500px;
-		}
-
-		.box> :last-child,
-		.box> :last-child> :last-child,
-		.box> :last-child> :last-child> :last-child {
+		.box > :last-child,
+		.box > :last-child > :last-child,
+		.box > :last-child > :last-child > :last-child {
 			margin-bottom: 0;
 		}
 
@@ -299,115 +291,146 @@
 			padding: 0;
 		}
 
-		.box {
-			border-color: rgba(0, 0, 0, 0.1);
-		}
-	</style>
-	<div class="container-fluid">
-		<marquee>Chào mừng đến với Nohope.com nơi cập nhật tin tức công nghệ mới nhất</marquee>
-		<div class="row">
-			@foreach($cate as $row)
-			@foreach($post as $r)
-			@if($row->id==$r->category_id)
-			@if($row->status==0)
-			<div class="col-md-3">
-				<div class="box">
-					<a class="image fit"><img src="{{ asset('img/upload/ava-post/'.$r->img) }}" height=200 /></a>
-					<div class="">
-						<h3 class="uppercaseText"><a href="{{ url('listcate/detail/'.$r->id) }}">{{ $r->title }}</a></h3>
-						<p>{{ $r->summary }}</p>
-
-					</div>
-				</div>
-			</div>
-			@break
-			@endif
-			@endif
-			@endforeach
-			@endforeach
-		</div>
-		<div>
-			<?php $check = 1; ?>
-			@foreach($cate as $row)
-			<?php $checkcat = 0; ?>
-			@foreach($post as $rr)
-			@if($rr->category_id==$row->id)
-			<div class="mt-3">
-				<span>
-					<dt class="uppercaseText">
-						<h1><big>|</big><b><a href="{{ url('listcate/cate-detail/'.$row->id) }}">{{$row->name}}</a></b></h1>
-					</dt>
-				</span>
-			</div>
-			<hr class="my-4">
-			@break
-			@endif
-			@endforeach
-			@foreach($post as $r)
-			@if($checkcat==5)
-			@break
-			@else
-			@if($row->id==$r->category_id)
-			@if($r->status==0)
-			@if($check==1)
-			<section>
-				<div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="image fit">
-								<a><img src="{{ asset('img/upload/ava-post/'.$r->img) }}" height=400 weight=400 /></a>
+	.box {
+		border-color: rgba(0, 0, 0, 0.1);
+	}
+  </style>
+  <div class="container-fluid">
+  <marquee >Chào mừng đến với Nohope.com nơi cập nhật tin tức công nghệ mới nhất</marquee>
+  <?php $i=0 ?>
+							<div class="bd-example">
+							<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+								<ol class="carousel-indicators">
+								@foreach($post as $r)
+								@if($r->status==1)
+									@if($i==0)
+									<li data-target="#carouselExampleCaptions" data-slide-to="<?php $i++ ?>" class="active"></li>
+									@else
+									<li data-target="#carouselExampleCaptions" data-slide-to="<?php $i++ ?>"></li>
+									@endif
+								@endif
+									@if($i>5)
+									@break
+									@endif
+								@endforeach
+								</ol>
+								<?php $i=0 ?>
+								<div class="carousel-inner">
+								@foreach($post as $r)
+								@if($r->status==1)
+								@if($i==0)
+								<div class="carousel-item active">
+									<img src="{{ asset('img/upload/ava-post/'.$r->img) }}" class="d-block w-100" height=500>
+									<div class="carousel-caption d-none d-md-block text-white bg-dark">
+									<h3><a href="{{ url('listcate/detail/'.$r->id) }}">{{ $r->title }}</a></h3>
+									<p><h5><b>{{ $r->summary }}</b></h5></p>
+									</div>
+								</div>
+								<?php $i++ ?>
+								@else
+								<div class="carousel-item">
+									<img src="{{ asset('img/upload/ava-post/'.$r->img) }}" class="d-block w-100" height=500>
+									<div class="carousel-caption d-none d-md-block text-white bg-dark">
+									<h3><a href="{{ url('listcate/detail/'.$r->id) }}">{{ $r->title }}</a></h3>
+									<p><h5><b>{{ $r->summary }}</b></h5></p>
+									</div>
+								</div>
+								@endif
+								@endif
+								@if($i>5)
+									@break
+									@endif
+								@endforeach
+								</div>
+								<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+								</a>
+								<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+								</a>
 							</div>
-						</div>
-						<div class="col-md-6">
-							<h3 class="uppercaseText">{{ $r->title }}</h3>
-							<p><small>{{ $r->created_at}} </small></p>
-							<p>{{ $r->summary }}</p>
-
-							<a href="{{ url('listcate/detail/'.$r->id) }}" class="button">Learn More</a>
-						</div>
-					</div>
-				</div>
-			</section>
-			<?php $check = $check + 1;
-			$checkcat = $checkcat + 1; ?>
-			<br>
-			@else
-			<section>
-				<div>
-					<div class="row">
-						<div class="col-md-6">
-							<h3 class="uppercaseText">{{ $r->title }}</h3>
-							<p><small>{{ $r->created_at }} </small><small> By </small></p>
-							<p>{{ $r->summary }}</p>
-
-							<a href="{{ url('listcate/detail/'.$r->id) }}" class="button">Learn More</a>
-						</div>
-						<div class="col-md-6">
-							<div class="image fit">
-								<a><img src="{{ asset('img/upload/ava-post/'.$r->img) }}" height=400 weight=400 /></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<?php $check = $check - 1;
-			$checkcat = $checkcat + 1; ?>
-			<br>
-			@endif
-			@endif
-			@endif
-			@endif
-			@endforeach
-			@foreach($post as $rr)
-			@if($rr->category_id==$row->id)
-			<span>
-				<dt class="text-center"><b><a href="{{ url('listcate/cate-detail/'.$row->id) }}">Xem Thêm...</a></b></dt>
-			</span>
-			@break
-			@endif
-			@endforeach
-			@endforeach
-		</div>
-	</div>
+							</div>	
+            <div>
+                  <?php $check =1; ?>
+                  @foreach($cate as $row)
+                  <?php  $checkcat=0; ?>
+				  @foreach($post as $rr)
+				  @if($rr->category_id==$row->id)
+				  
+                  <div class="mt-3">
+                  <span><dt class="uppercaseText"><h1><big>|</big><b><a href="{{ url('listcate/cate-detail/'.$row->id) }}">{{$row->name}}</a></b></h1></dt></span>
+                  </div>
+				  <hr class="my-4">
+				  
+				  @break
+				  @endif
+				  @endforeach
+                        @foreach($post as $r)
+                              @if($checkcat==5)
+                              @break
+                              @else
+                                    @if($row->id==$r->category_id)
+                                          @if($r->status==1)
+                                                @if($check==1)
+                                                <section>
+                                                            <div>
+                                                                  <div class="row">
+                                                                              <div class="col-md-6">
+                                                                                    <div class="image fit">
+                                                                                          <a><img src="{{ asset('img/upload/ava-post/'.$r->img) }}" height=400 weight=400 /></a>
+                                                                                    </div>
+                                                                              </div>
+                                                                              <div class="col-md-6">
+                                                                                    <h3 class="uppercaseText">{{ $r->title }}</h3>
+																					<p><small>{{ $r->created_at}} </small><small> Đăng bởi @foreach($user as $i) @if( $i->id == $r->users_id)  {{ $i->name }} @break @endif @endforeach </small></p>
+                                                                                    <p>{{ $r->summary }}</p>
+																					
+                                                                                    <a href="{{ url('listcate/detail/'.$r->id) }}" class="button">Đọc Thêm</a>
+                                                                              </div>
+                                                                  </div>
+                                                            </div>
+                                                </section>
+                                                <?php $check = $check+1; $checkcat=$checkcat+1; ?>
+                                                <br>
+                                                @else
+                                                <section>
+                                                      <div>
+                                                            <div class="row">
+                                                                  <div class="col-md-6">
+                                                                        <h3 class="uppercaseText">{{ $r->title }}</h3>
+																		<p><small>{{ $r->created_at }} </small><small> Đăng bởi @foreach($user as $i) @if( $i->id == $r->users_id)  {{ $i->name }} @break @endif @endforeach </small></p>
+                                                                        <p>{{ $r->summary }}</p>
+																		
+                                                                        <a href="{{ url('listcate/detail/'.$r->id) }}" class="button">Đọc Thêm</a>
+                                                                  </div>
+                                                                  <div class="col-md-6">
+                                                                        <div class="image fit">
+                                                                              <a><img src="{{ asset('img/upload/ava-post/'.$r->img) }}" height=400 weight=400 /></a>
+                                                                        </div>
+                                                                  </div>
+                                                            </div>
+                                                      </div>
+                                                </section>
+                                                <?php $check = $check-1; $checkcat=$checkcat+1; ?>
+                                                <br>
+                                                @endif 
+                                          @endif
+                                    @endif
+                              @endif
+                        @endforeach
+						@foreach($post as $rr)
+				 		@if(($rr->category_id==$row->id)&&($rr->status==1))
+						 <span><dt class="text-center"><b><a href="{{ url('listcate/cate-detail/'.$row->id) }}">Xem Thêm...</a></b></dt></span>
+						@break
+						@endif
+						@endforeach	
+                  @endforeach 
+            </div>  
+      </div>     
 </section>
 @endsection
+
+
+

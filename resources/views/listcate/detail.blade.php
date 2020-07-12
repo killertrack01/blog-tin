@@ -46,11 +46,11 @@
                                     <b>Thể loại tin</b>
                                 </div>
                             </div>
+                            <br>
                             @foreach($cate as $c)
                             <div class="row">
-                                <div class="col-xl-5 text-center">
-                                    <a href="{{ url('listcate/cate-detail/'.$c->id) }}">{{ $c->name }}</a>
-                                    <hr>
+                                <div class="col-xl-6 align-middle">
+                                    <a class="text-info" href="{{ url('listcate/cate-detail/'.$c->id) }}">{{ $c->name }}</a>
                                 </div>
                             </div>
                             @endforeach
@@ -81,6 +81,7 @@
                 </div>
             </div>
         </div>
+        <hr>
     </div>
 </div>
 @endsection

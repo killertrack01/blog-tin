@@ -167,7 +167,7 @@ class PostController extends Controller
 
     //post detail list
     public function detail($id)
-    {
+    {   
         $post = Post::find($id);
         $relate = Post::where('category_id', $post->category_id)->where('status',1)->take(3)
             ->get();

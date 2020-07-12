@@ -320,7 +320,7 @@
 								@if($r->status==1)
 								@if($i==0)
 								<div class="carousel-item active">
-									<img src="{{ asset('img/upload/ava-post/'.$r->img) }}" class="d-block w-100" height=500>
+									<img src="{{ asset('img/upload/ava-post/'.$r->img) }}" class="d-block w-100">
 									<div class="carousel-caption d-none d-md-block text-white bg-dark">
 									<h3><a href="{{ url('listcate/detail/'.$r->id) }}">{{ $r->title }}</a></h3>
 									<p><h5><b>{{ $r->summary }}</b></h5></p>
@@ -329,7 +329,7 @@
 								<?php $i++ ?>
 								@else
 								<div class="carousel-item">
-									<img src="{{ asset('img/upload/ava-post/'.$r->img) }}" class="d-block w-100" height=500>
+									<img src="{{ asset('img/upload/ava-post/'.$r->img) }}" class="d-block w-100">
 									<div class="carousel-caption d-none d-md-block text-white bg-dark">
 									<h3><a href="{{ url('listcate/detail/'.$r->id) }}">{{ $r->title }}</a></h3>
 									<p><h5><b>{{ $r->summary }}</b></h5></p>

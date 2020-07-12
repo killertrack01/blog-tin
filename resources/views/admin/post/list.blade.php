@@ -34,7 +34,7 @@
                   <th class="align-middle text-center" style="width:10%">Ngày tạo</th>
                   <th class="align-middle text-center" style="width:10%">Ngày chỉnh sửa</th>
                   <th class="align-middle text-center" style="width:5%">Trạng thái</th>
-                  <th class="align-middle text-center" style="width:10%" colspan="2">Thao tác</th>
+                  <th class="align-middle text-center" style="width:10%">Thao tác</th>
                 </tr>
               </thead>
               <tbody>
@@ -75,7 +75,7 @@
                     </a>
                   </td>
                   @endif
-                  <td class="align-middle text-center" colspan="2">
+                  <td class="align-middle text-center">
                     <h3>
                       @if($p->users_id==($id=auth()->user()->id))
                       <a href="{{ asset('admin/post/edit/'.$p->id) }}">

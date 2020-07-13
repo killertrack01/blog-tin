@@ -76,10 +76,6 @@ class InfoController extends Controller
         
 
     }
-    public function feedback()
-    {
-        return view('user.feedback');
-    }
     public function contact()
     {
         return view('user.contact');

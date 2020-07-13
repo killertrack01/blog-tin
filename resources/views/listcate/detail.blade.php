@@ -31,6 +31,42 @@
                         </div>
                         <div class="col-xl-10">
                             {!! $post->detail !!}
+
+                            <!-- comment-form -->
+                            <div class="card my-4">
+                                <h4 class="card-header">Bình luận</h4>
+                                <p>
+                                    <p>
+                                        <div class="card-body">
+                                            <form action="{{route('comment',$post->id)}}" method="post">
+                                                {{ csrf_field() }}
+                                                <div class="form-group">
+                                                    <textarea class="form-control" name="detail" rows="4"></textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Gửi</button>
+                                            </form>
+                                        </div>
+                            </div>
+                            <!-- /.comment-form -->
+
+                            <hr>
+
+                            <!-- comment-list -->
+                            @foreach($cmt as $key => $val)
+                            @foreach($user as $val2)
+                            @if($val->users_id === $val2->id)
+                            <div class="card my-4">
+                                <div class="card-body">
+                                    <h5 class="mt-0">{{$val2->name}}</h5>
+                                    <small><i>{{$val->created_at}}</i></small><br>
+                                    {{$val->detail}}
+                                </div>
+                            </div>
+                            @endif
+                            @endforeach
+                            @endforeach
+                            <!-- /.comment-list -->
+
                         </div>
                     </div>
                 </div>

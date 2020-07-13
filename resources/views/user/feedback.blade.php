@@ -1,10 +1,12 @@
 @extends('layouts.app')
-@section('title','Phản Hồi')
+@section('title'.'Phản hồi')
 @section('content')
 <div class="container">
     <div class="row">
+
+        <!--image-->
         <div class="col-md-6">
-            <img src="{{ asset('images/feedback1.png') }}" alt="" width="100%" height="295px">
+            <img src="{{ asset('images/feedback1.png') }}" width="100%" height="295px" style="padding-top: 10px;">
             <p>
                 <div>
                     <h4 class="text-center" style="font-family:'Times New Roman', Times, serif;">
@@ -16,65 +18,80 @@
                     </h4>
                 </div>
         </div>
+        <!--/.image-->
 
-
+        <!-- feedback-form -->
         <div class="col-md-6">
-            <!-- feedback-form -->
             <div>
                 <div>
+                    @if(session('success'))
+                    <div class="col-md-12" style="padding-top: 10px;">
+                        <div class="alert alert-success" role="alert" style="text-align: center;">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            {{ session('success') }}
+                        </div>
+                    </div>
+                    @endif
                     <h2 class="text-center">Phản hồi</h2>
                     <hr>
                     <p>
                         Vui lòng điền vào thông tin phản hồi phía bên dưới:
                     </p>
-                    <form>
+                    <form method="post" action="{{ route('feedback') }}">
+                        {{ csrf_field() }}
                         <div class="row">
                             <div class="col-sm-12 form-group">
                                 <label style="color: black; font-size:large">Bạn đánh giá thế nào về trải nghiệm chung của bạn?</label>
-                                <p>
-                                    <label class="radio-inline">
-                                        <input type="radio" value="bad">
-                                        Tệ
-                                    </label>
-
-                                    <label class="radio-inline">
-                                        <input type="radio" value="average">
-                                        Bình thường
-                                    </label>
-
-                                    <label class="radio-inline">
-                                        <input type="radio" value="good">
-                                        Rất tốt
-                                    </label>
-                                </p>
+                                <div class="form-check">
+                                    <label><input class="form-check-input" type="radio" name="rate" value="Tệ">Tệ</label>
+                                </div>
+                                <div class="form-check">
+                                    <label><input class="form-check-input" type="radio" name="rate" value="Bình thường">Bình thường</label>
+                                </div>
+                                <div class="form-check">
+                                    <label><input class="form-check-input" type="radio" name="rate" value="Rất tốt">Rất tốt</label>
+                                </div>
+                                @if($errors->has('rate'))
+                                <p class="alert alert-danger">{{$errors->first('rate')}}</p>
+                                @endif
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12 form-group">
                                 <label for="comments" style="color: black; font-size:large">Ý kiến phản hồi</label>
-                                <textarea class="form-control" type="textarea" placeholder="Nhập vào đây" maxlength="6000" rows="7"></textarea>
+                                <textarea class="form-control" type="textarea" name="detail" placeholder="Nhập vào đây" maxlength="6000" rows="7"></textarea>
+                                @if($errors->has('detail'))
+                                <p class="alert alert-danger">{{$errors->first('detail')}}</p>
+                                @endif
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label for="name" style="color: black;">Họ và tên</label>
-                                <input type="text" class="form-control" required>
+                                <input type="text" class="form-control" id="name" name="name">
+                                @if($errors->has('name'))
+                                <p class="alert alert-danger">{{$errors->first('name')}}</p>
+                                @endif
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label for="email" style="color: black;">Email</label>
-                                <input type="email" class="form-control" required>
+                                <input type="email" class="form-control" id="email" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+                                @if($errors->has('email'))
+                                <p class="alert alert-danger">{{$errors->first('email')}}</p>
+                                @endif
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12 form-group">
-                                <button type="submit" class="btn btn-lg btn-warning btn-block">Gửi</button>
+                                <button type="submit" class="btn btn-primary btn-block">Gửi</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-            <!-- /.feedback-form -->
         </div>
+        <!-- /.feedback-form -->
+
     </div>
 </div>
 @endsection

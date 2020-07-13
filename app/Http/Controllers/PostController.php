@@ -7,6 +7,9 @@ use Illuminate\Support\Str;
 use App\Category;
 use App\Post;
 use App\User;
+use Illuminate\Support\Facades\DB;
+use App\Comment;
+
 
 class PostController extends Controller
 {
@@ -171,7 +174,9 @@ class PostController extends Controller
         $post = Post::find($id);
         $relate = Post::where('category_id', $post->category_id)->where('status',1)->take(3)
             ->get();
-        return view('listcate.detail', ['post' => $post, 'relate' => $relate]);
+        $cmt = Comment::where('post_id','=',$id)->get();
+        $user = User::all();
+        return view('listcate.detail', ['post' => $post, 'relate' => $relate,'cmt' => $cmt, 'user' => $user]);
     }
     //Searching post
     public function search(Request $request)

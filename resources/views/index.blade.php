@@ -294,6 +294,9 @@
 	.box {
 		border-color: rgba(0, 0, 0, 0.1);
 	}
+	.card-footer{
+		height:300px;
+	}
   </style>
   <div class="container-fluid">
   <marquee >Chào mừng đến với Nohope.com nơi cập nhật tin tức công nghệ mới nhất</marquee>
@@ -335,7 +338,29 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+<section style="padding:15px;">
+<div class="text-center bg-dark text-light rounded-lg" style="padding:15px;"><h5>Nhưng thông tin mới nhất</h5></div>
+<div class="row" style="padding:10px;">
+<?php $i=1 ?>
+@foreach($post as $rrr)
+	<div class="col-md-3">
+	<div class="card text-center">
+		<div class="card-body">
+		<img src="{{ asset('img/upload/ava-post/'.$rrr->img) }}" height=150>
+		</div>
+		<div class="card-footer bg-dark text-light">
+		<p><a href="{{ url('listcate/detail/'.$rrr->id) }}">{{$rrr->title}}</a></p>
+		<p>{{$rrr->summary}}</p>
+		</div>
+	</div>
+	</div>
+<?php $i++; ?>
+@if($i>4)
+@break
+@endif
+@endforeach
 
+</section>
             <div>
                   <?php $check =1; ?>
                   @foreach($cate as $row)

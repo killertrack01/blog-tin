@@ -339,10 +339,11 @@
   </a>
 </div>
 <section style="padding:15px;">
-<div class="text-center bg-dark text-light rounded-lg" style="padding:15px;"><h5>Nhưng thông tin mới nhất</h5></div>
+<div class="text-center bg-dark text-light rounded-lg" style="padding:15px;"><h5>Những thông tin mới nhất</h5></div>
 <div class="row" style="padding:10px;">
 <?php $i=1 ?>
 @foreach($post as $rrr)
+@if($rrr->status==1)
 	<div class="col-md-3">
 	<div class="card text-center">
 		<div class="card-body">
@@ -355,6 +356,7 @@
 	</div>
 	</div>
 <?php $i++; ?>
+@endif
 @if($i>4)
 @break
 @endif

@@ -72,7 +72,7 @@ class UserPostController extends Controller
     {
         $this -> validate($request,[
             'uTitle' => 'bail|required|string|min:10|max:180',
-            'uMota' => 'bail|required|string|min:10|max:50',
+            'uMota' => 'bail|required|string|min:10|max:225',
             'uNoidung' => 'required',
             'uAuthor' => 'bail|required|string|min:2|max:20',
             'uCategory' => 'required',
@@ -83,7 +83,7 @@ class UserPostController extends Controller
             'uTitle.max' => 'Độ dài Tiêu đề nhiều nhất 180 ký tự',
             'uMota.required' => 'Vui lòng nhập mô tả',
             'uMota.min' => 'Độ đài mô tả ít nhất 10 ký tự',
-            'uMota.max' => 'Độ đài mô tả nhiều nhất 50 ký tự',
+            'uMota.max' => 'Độ đài mô tả nhiều nhất 225 ký tự',
             'uAuthor.required' => 'Vui lòng nhập tên tác giả',
             'uAuthor.min' => 'Tên tác giả ít nhất 2 ký tự',
             'uAuthor.max' => 'Tên tác giả nhiều nhất 20 ký tự',
@@ -151,7 +151,7 @@ class UserPostController extends Controller
 
         $this -> validate($request,[
             'uTitle' => 'bail|required|string|min:10|max:180',
-            'uMota' => 'bail|required|string|min:10|max:50',
+            'uMota' => 'bail|required|string|min:10|max:225',
             'uNoidung' => 'required',
             'uAuthor' => 'bail|required|string|min:2|max:20',
             'uCategory' => 'required',
@@ -162,7 +162,7 @@ class UserPostController extends Controller
             'uTitle.max' => 'Độ dài Tiêu đề nhiều nhất 180 ký tự',
             'uMota.required' => 'Vui lòng nhập mô tả',
             'uMota.min' => 'Độ đài mô tả ít nhất 10 ký tự',
-            'uMota.max' => 'Độ đài mô tả nhiều nhất 50 ký tự',
+            'uMota.max' => 'Độ đài mô tả nhiều nhất 225 ký tự',
             'uAuthor.required' => 'Vui lòng nhập tên tác giả',
             'uAuthor.min' => 'Tên tác giả ít nhất 2 ký tự',
             'uAuthor.max' => 'Tên tác giả nhiều nhất 20 ký tự',

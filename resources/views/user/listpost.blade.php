@@ -3,8 +3,9 @@
 <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 @section('title','Danh sách bài')
 @section('content')
+<br>
 <section class="content">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
           <div class="col-12">
           @if(session('alert'))
@@ -166,7 +167,7 @@
       </div>
       <!-- /.container-fluid -->
     </section>
-       
+<br> 
 @endsection
 <!-- jQuery -->
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>

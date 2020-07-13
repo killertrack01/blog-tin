@@ -297,61 +297,45 @@
   </style>
   <div class="container-fluid">
   <marquee >Chào mừng đến với Nohope.com nơi cập nhật tin tức công nghệ mới nhất</marquee>
-  <?php $i=0 ?>
-							<div class="bd-example">
-							<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-								<ol class="carousel-indicators">
-								@foreach($post as $r)
-								@if($r->status==1)
-									@if($i==0)
-									<li data-target="#carouselExampleCaptions" data-slide-to="<?php $i++ ?>" class="active"></li>
-									@else
-									<li data-target="#carouselExampleCaptions" data-slide-to="<?php $i++ ?>"></li>
-									@endif
-								@endif
-									@if($i>5)
-									@break
-									@endif
-								@endforeach
-								</ol>
-								<?php $i=0 ?>
-								<div class="carousel-inner">
-								@foreach($post as $r)
-								@if($r->status==1)
-								@if($i==0)
-								<div class="carousel-item active">
-									<img src="{{ asset('img/upload/ava-post/'.$r->img) }}" class="d-block w-100">
-									<div class="carousel-caption d-none d-md-block text-white bg-dark">
-									<h3><a href="{{ url('listcate/detail/'.$r->id) }}">{{ $r->title }}</a></h3>
-									<p><h5><b>{{ $r->summary }}</b></h5></p>
-									</div>
-								</div>
-								<?php $i++ ?>
-								@else
-								<div class="carousel-item">
-									<img src="{{ asset('img/upload/ava-post/'.$r->img) }}" class="d-block w-100">
-									<div class="carousel-caption d-none d-md-block text-white bg-dark">
-									<h3><a href="{{ url('listcate/detail/'.$r->id) }}">{{ $r->title }}</a></h3>
-									<p><h5><b>{{ $r->summary }}</b></h5></p>
-									</div>
-								</div>
-								@endif
-								@endif
-								@if($i>5)
-									@break
-									@endif
-								@endforeach
-								</div>
-								<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								<span class="sr-only">Previous</span>
-								</a>
-								<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-								<span class="carousel-control-next-icon" aria-hidden="true"></span>
-								<span class="sr-only">Next</span>
-								</a>
-							</div>
-							</div>	
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions1" data-slide-to="1" class="active"></li>
+    <li data-target="#carouselExampleCaptions2" data-slide-to="2"></li>
+    <li data-target="#carouselExampleCaptions3" data-slide-to="3"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{ asset('images/1.jpg') }}" class="d-block w-100" height=500>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Bạn muốn muốn một chiếc laptop?</h5>
+        <p>Chúng tôi sẽ giúp bạn tìm hiểu và cập nhật các thông tin thịnh hành nhất</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{{ asset('images/2.jpg') }}" class="d-block w-100" height=500>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Bạn muốn có một giàn PC cùng phụ kiện tốt để chơi game?</h5>
+        <p>Chúng tôi sẽ cung cấp cho bạn nhưng dàn PC tốt nhất và giá cả hợp lý nhất.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{{ asset('images/4.jpg') }}" class="d-block w-100" height=500>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Bạn muốn có mua một chiếc điện thoại?</h5>
+        <p>Chúng tôi sẽ cho bạn cả một thế giới tin tức điện thoại để lựa chọn</p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
             <div>
                   <?php $check =1; ?>
                   @foreach($cate as $row)

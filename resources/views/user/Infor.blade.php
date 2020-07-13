@@ -1,11 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<style>
-
-</style>
         <div class="container">
-            <div class="row">
-                <div class="col-md-12"><div class="card">
+            <div class="row" style="padding:50px">
+                <div class="col-md-12"><div class="card" >
                         
                             @guest
                             <div class="card-body">
@@ -15,7 +12,7 @@
                                         <div><a href="{{ route('register') }}">{{ __('Đăng ký') }}</a></div>
                                     @endif
                             @else
-                            <div class="card-header card-title bg-dark text-light text-center">
+                            <div class="card-header card-title bg-dark text-light text-center" >
                             <h5><b>Thông tin cá nhân</b></h5>
                             </div>
                             <div class="card-body text-dark" style="background:#fdf5e6;">

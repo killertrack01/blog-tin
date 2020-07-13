@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8" style="padding:50px">
             <div class="card bg-light text-dark">
                 <div class="card-header text-center bg-dark text-light"><h5><b>{{ __('ĐĂNG KÝ') }}</b></h5></div>
 

@@ -5,7 +5,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="padding:50px">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
@@ -85,3 +85,18 @@
     </section>
     <!-- /.content -->
 @endsection  
+@section('script-section')
+<script>
+  $(function() {
+    $('#listcate').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true,
+      "responsive": true,
+    });
+  });
+</script>
+@endsection

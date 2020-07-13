@@ -9,7 +9,7 @@
       <h2 class="my-4">{{ $catemain->name }} <small>{{ $catemain->description }}</small></h2>
     </div>
   </div>
-  @foreach($post as $p)
+  @foreach($sort as $p)
   <!-- Project One -->
   <div class="row">
     <div class="col-md-4">

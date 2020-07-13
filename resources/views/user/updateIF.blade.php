@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row" style="padding:50px">
+            <div class="col-md-12" >
                 <div class="card">
                     <div class="card-header bg-dark text-light">
                         <h4 class="text-center text-justify">Cập nhật thông tin cá nhân</h4>

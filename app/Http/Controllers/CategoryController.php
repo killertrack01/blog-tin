@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Suppor\t\Collection;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Post;
@@ -89,6 +89,7 @@ class CategoryController extends Controller
     {
         $catemain = Category::find($id);
         $post = Post::where('category_id', $id)->where('status',1)->paginate(5);
-        return view('listcate.cate_detail', compact('catemain','post'));
+        $sort=$post->sortByDesc('id');
+        return view('listcate.cate_detail', compact('catemain','post','sort'));
     }
 }

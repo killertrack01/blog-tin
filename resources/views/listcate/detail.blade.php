@@ -7,8 +7,8 @@
             <!--Detail post-->
             <div class="col-xl-9">
                 <ol class="breadcrumb" class="text-uppercase" style="background-color: white;font-weight:400">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item "><a href="#">{{ $post->cate->name }}</a></li>
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item "><a href="{{ url('listcate/cate-detail/'.$post->cate->id) }}">{{ $post->cate->name }}</a></li>
                 </ol>
                 <div class="container-fluid">
                     <div class="row">
@@ -74,13 +74,31 @@
 
             <!---panel-->
             <div class="col-xl-3 side-panel">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <b>Tin liên quan</b>
-                        <hr>
-                    </div>
+                <div class="panel panel-default" style="border-left: 1px solid #dedede; padding-left:10px">
                     <div class="panel-body">
                         <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <b>Thể loại tin</b>
+                                </div>
+                            </div>
+                            <br>
+                            @foreach($cate as $c)
+                            <div class="row">
+                                <div class="col-xl-6 align-middle">
+                                    <a class="text-info" href="{{ url('listcate/cate-detail/'.$c->id) }}">{{ $c->name }}</a>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                        <br>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <b>Tin liên quan</b>
+                                </div>
+                            </div>
+                            <br>
                             @foreach($relate as $r)
                             <div class="row">
                                 <div class="col-xl-5">
@@ -92,12 +110,14 @@
                                     <a href="{{ url('listcate/detail/'.$r->id) }}" style="color: black;">{{ $r->title}}</a>
                                 </div>
                             </div>
+                            <hr>
                             @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <hr>
     </div>
 </div>
 @endsection

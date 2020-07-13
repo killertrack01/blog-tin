@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title','Sửa bài viết')
 @section('content')
+<br>
 <div class="container">
     <div class="card card-primary">
         <div class="card-header">
@@ -104,6 +105,7 @@
         </form>
     </div>
 </div>
+<br>
 @endsection
 
 <script src="{{ asset('myeditor/scripts/jquery-1.9.1.min.js')}}" type="text/javascript"></script>

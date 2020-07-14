@@ -1,4 +1,6 @@
 @extends('layouts.app')
+<link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
+<link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 @section('title','Lịch sử bình luận cá nhân')
 @section('content')
 <section class="content">
@@ -48,7 +50,10 @@
                                     @endforeach
                                     <td>{{ $key->detail }}</td>
                                     <td>{{ $key->created_at }}</td>
-                                    <td class="text-center"><a onclick="return confirm(' Bạn có muốn xóa không ?')" href="{{ url("user/listcomment/delete/{$key->id}") }}">
+                                    <td class="text-center"><a href="{{ url("user/editcmt/{$key->id}") }}">
+                                            <i class="fas fa-tools btn btn-primary"> Sửa </i>
+                                        </a>
+                                        <a onclick="return confirm(' Bạn có muốn xóa không ?')" href="{{ url("user/listcomment/delete/{$key->id}") }}">
                                             <i class="fas fa-trash-alt btn btn-danger"> Xóa </i>
                                         </a></td>
                                 </tr>
@@ -72,18 +77,22 @@
     <!-- /.container-fluid -->
 </section>
 @endsection
+<!-- jQuery -->
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+<!-- DataTables -->
+<script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 @section('script')
 <script>
-    $(function() {
-        $('#listComment').DataTable({
-            "paging": true,
-            "lengthChange": true,
-            "searching": true,
-            "ordering": true,
-            "info": true,
-            "autoWidth": true,
-            "responsive": true,
-        });
+    $('#listComment').DataTable({
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": true,
+        "responsive": true,
     });
 </script>
 @endsection

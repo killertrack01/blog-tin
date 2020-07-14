@@ -35,11 +35,12 @@
             <table id="listfeedback" class="table table-hover text-center">
               <thead class="thead-dark">
                 <tr>
-                  <th>Tên người phản hồi</th>
+                  <th>Họ và tên</th>
                   <th>Email</th>
                   <th>Nội dung</th>
                   <th>Đánh giá</th>
                   <th>Trạng thái</th>
+                  <th>Cập nhật</th>
                   <th>Trả lời</th>
                   <th>Xóa</th>
                 </tr>
@@ -53,13 +54,16 @@
                   <td class="align-middle">{{ $f->rate }}</td>
                   <td class="align-middle">
                     @if($f->status==0)
-                    chưa trả lời
+                    Chưa trả lời
                     @endif
                     @if($f->status==1)
-                    đã trả lời
+                    Đã trả lời
                     @endif
                   </td>
-                  <td class="align-middle"><a href="maito:dainguyenvan1703@gmail.com">
+                  <td class="align-middle"><a href="{{ url("admin/update/{$f->id}") }}">
+                      <h3><span class="badge badge-primary"><i class="fas fa-reply"></i></span></h3>
+                    </a></td>
+                  <td class="align-middle"><a href="mailto:">
                       <h3><span class="badge badge-success"><i class="fas fa-pencil-ruler"></i></span></h3>
                     </a></td>
                   <td class="align-middle"><a onclick="return confirm(' Bạn có muốn xóa không ?')" href="{{ url("admin/delete/{$f->id}") }}">

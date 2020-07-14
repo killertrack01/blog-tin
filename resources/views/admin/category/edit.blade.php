@@ -56,7 +56,7 @@
         <div class="col-xl-6 ">
             <div class="card" style="margin-top: 50px;">
                 <div class="card-header bg-dark">
-                    <h2 class="text-uppercase text-center" style='font-family: "Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif'> Thêm loại bài viết </h2>
+                    <h2 class="text-uppercase text-center" style='font-family: "Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif'> Sửa loại bài viết </h2>
                 </div>
                 <div class="card-body">
                     <!--thông báo là đã thêm thành công hay chưa-->

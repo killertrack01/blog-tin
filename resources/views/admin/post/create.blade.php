@@ -34,7 +34,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Tiêu đề bài viết <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="title" placeholder="Tiêu đề của bài viết" required>
+                                    <input type="text" class="form-control" name="title" placeholder="Tiêu đề của bài viết" required value="{{ old('title') }}">
                                 </div>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Sơ lược về bài viết <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="sum" rows="3" placeholder="sơ lược về bài viết" required></textarea>
+                                    <textarea class="form-control" name="sum" rows="3" placeholder="sơ lược về bài viết" required value="{{ old('sum') }}"></textarea>
                                 </div>
                             </div>
                         </div>

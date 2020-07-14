@@ -25,13 +25,21 @@
                             <img class="img-fluid" style="max-height: 817px;max-width:100%" src="{{ asset('img/upload/ava-post/'.$post->img) }}" alt="{{ $post->title }}">
                         </div>
                     </div>
+                    <hr>
                     <div class="row">
-                        <div class="col-xl-2">
-
-                        </div>
+                        <div class="col-xl-2"></div>
                         <div class="col-xl-10">
-                            {!! $post->detail !!}
-
+                            <p>{!! $post->detail !!}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6"></div>
+                        <div class="col-xl-6 text-right">
+                            Người đăng: <b>{{ $post->user->name }}</b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12">
                             <!-- comment-form -->
                             <div class="card my-4">
                                 <h4 class="card-header">Bình luận</h4>
@@ -48,9 +56,6 @@
                                         </div>
                             </div>
                             <!-- /.comment-form -->
-
-                            <hr>
-
                             <!-- comment-list -->
                             @foreach($cmt as $key => $val)
                             @foreach($user as $val2)
@@ -66,7 +71,6 @@
                             @endforeach
                             @endforeach
                             <!-- /.comment-list -->
-
                         </div>
                     </div>
                 </div>

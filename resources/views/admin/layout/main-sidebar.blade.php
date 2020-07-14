@@ -31,7 +31,15 @@
                         <li class="nav-item">
                             <a href="{{ url('admin/control-admin/create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Thêm Admin</p>
+                                <p>Nâng cấp người dùng</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('cread') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm admin</p>
                             </a>
                         </li>
                     </ul>

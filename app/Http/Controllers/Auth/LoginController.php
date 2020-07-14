@@ -30,13 +30,7 @@ class LoginController extends Controller
    // protected $redirectTo = RouteServiceProvider::HOME;
    protected function redirectTo()
    {
-    global $check;
-       if (Auth::user()->role =='0') {
-           return 'admin/index';
-       } else {
-           return '/'; 
-       }
-       
+           return '/';   
    } 
     /**
      * Create a new controller instance.

@@ -15,6 +15,13 @@ class FeedbackController extends Controller
         return view('admin.feedback.list')->with(['feedback'=>$feedback]);
     }
 
+    //Admin cập nhật phản hồi
+    public function updateFeedback($id)
+    {
+        $f = Feedback::find($id)->where('id', '=', $id)->update(['status'=>'1']);
+        return redirect()->action('FeedbackController@listFeedback');
+    }
+
     //Admin xóa phản hồi
     public function deleteFeedback($id)
     {
@@ -35,7 +42,7 @@ class FeedbackController extends Controller
         $feedback = Feedback::all();
         $this->validate($request,
         [
-            'name' => 'required|min:3|max:100',
+            'name' => 'required|min:3|max:20',
             'email' => 'required',
             'rate' => 'required',
             'detail' => 'required'
@@ -43,8 +50,8 @@ class FeedbackController extends Controller
         [   
             'rate.required' => 'Bạn chưa đánh giá trang web',
             'name.required' => 'Họ và tên không được bỏ trống !',
-            'name.min' => 'Họ và tên phải có độ dài từ 3 đến 100 kí tự',
-            'name.max' => 'Họ và tên phải có độ dài từ 3 đến 100 kí tự',
+            'name.min' => 'Họ và tên phải có độ dài từ 3 đến 20 kí tự',
+            'name.max' => 'Họ và tên phải có độ dài từ 3 đến 20 kí tự',
             'email.required' => 'Email không được bỏ trống !',
             'detail.required' => 'Ý kiến phản hồi không được bỏ trống !'
 
@@ -66,6 +73,7 @@ class FeedbackController extends Controller
         $feedback['detail'] = $detail;
         $feedback['rate'] = $rate;
         $feedback['status'] = '0';
+        $feedback;
         $feedback->save();
         return redirect()->route('feedback')->with('success','Gửi phản hồi thành công');
     }

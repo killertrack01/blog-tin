@@ -18,6 +18,32 @@ class CommentController extends Controller
         return view('admin.comment.list')->with(['comment' => $comment,'user' => $user]);
     }
 
+    //User sửa bình luận
+    public function editComment($id)
+    {
+        $comment = Comment::find($id);
+        return view('user.editcmt', ['comment' => $comment]);
+    }
+
+    public function postEditCmt(Request $request, $id)
+    {
+
+        $comment = Comment::find($id);
+        $this->validate(
+            $request,
+            [
+                'detail' => 'required',
+            ],
+            [
+                'detail.required' => 'Bạn chưa nhập lại bình luận !',
+            ]
+        );
+        $comment->detail = $request->detail;
+        $comment->save();
+
+        return redirect('user/editcmt/' . $id)->with('alert', 'Sửa bình luận thành công ');
+    }
+
     //Admin xóa bình luận
     public function deleteComment($id)
     {

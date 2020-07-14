@@ -57,6 +57,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 //Feedback
 Route::get('admin/feedback/list', 'FeedbackController@listFeedback');
 Route::get('admin/delete/{id}', 'FeedbackController@deleteFeedback');
+Route::get('admin/update/{id}', 'FeedbackController@updateFeedback');
 Route::get('/feedback', 'FeedbackController@feedback')->name('feedback');
 Route::post('/feedback', 'FeedbackController@createFeedback')->name('createFeedback');
 
@@ -66,6 +67,8 @@ Route::get('admin/comment/delete/{id}', 'CommentController@deleteComment');
 
 //Comment user
 Route::get('/listcomment', 'CommentController@userlistCmt')->name('listcomment');
+Route::get('user/editcmt/{id}', 'CommentController@editComment');
+Route::post('user/editcmt/{id}', 'CommentController@postEditCmt');
 Route::get('user/listcomment/delete/{id}', 'CommentController@userdelCmt');
 Route::post('/comment/{post_id}', 'CommentController@postComment')->name('comment');
 

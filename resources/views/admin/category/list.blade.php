@@ -28,8 +28,8 @@
                 <th>Mô tả bài</th>
                 <th>Ngày tạo</th>
                 <th>Ngày chỉnh sửa</th>
-                <th>Sửa tên loại</th>
-                <th>Xóa loại</th>
+                <th>Thao tác</th>
+
               </tr>
             </thead>
             <tbody>
@@ -41,11 +41,12 @@
                 <td class="align-middle">{{$c->created_at}}</td>
                 <td class="align-middle">{{$c->updated_at}}</td>
                 <td class="align-middle"><a href="{{ asset('admin/category/edit/'.$c->id) }}">
-                    <h3><span class="badge badge-success"><i class="fas fa-tools"></i></span></h3>
-                  </a></td>
-                <td class="align-middle"><a href="{{ asset('admin/category/delete/'.$c->id) }}" onclick="return confirm(' bạn có muốn xóa ko ?')">
-                    <h3><span class="badge badge-danger"><i class="fas fa-trash-alt"></i></span></h3>
-                  </a></td>
+                    <span class="btn btn-success"><i class="fas fa-tools"></i></span>
+                  </a>
+                  <!-- <a href="{{ asset('admin/category/delete/'.$c->id) }}" onclick="return confirm(' bạn có muốn xóa ko ?')">
+                    <span class="btn btn-danger"><i class="fas fa-trash-alt"></i></span>
+                  </a> -->
+                </td>
               </tr>
               @endforeach
             </tbody>

@@ -14,8 +14,8 @@ class AddContraintCmt extends Migration
     public function up()
     {
         Schema::table('comment', function (Blueprint $table) {
-            $table->foreign('post_id')->references('id')->on('post');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('post_id')->references('id')->on('post')->onDelete('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

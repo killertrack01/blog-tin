@@ -39,6 +39,7 @@
                   <th>Người bình luận</th>
                   <th>Nội dung</th>
                   <th>Ngày đăng</th>
+                  <th>Sửa</th>
                   <th>Xóa</th>
                 </tr>
               </thead>

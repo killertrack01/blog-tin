@@ -9,7 +9,7 @@
       <h2 class="my-4">{{ $catemain->name }} <small>{{ $catemain->description }}</small></h2>
     </div>
   </div>
-  @foreach($sort as $p)
+  @foreach($post as $p)
   <!-- Project One -->
   <div class="row">
     <div class="col-md-4">
@@ -18,7 +18,7 @@
     <div class="col-md-8">
       <h3>{{ $p->title }}</h3>
       <p>{{ $p->summary }}</p>
-      <small> được viết bởi: {{ $p->user->name }} </small>
+      <small> được đăng bởi: {{ $p->user->name }} </small>
       <br>
       <a class="btn btn-secondary" href="{{ url('listcate/detail/'.$p->id) }}">Xem bài viết</a>
     </div>

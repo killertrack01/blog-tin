@@ -89,6 +89,6 @@ class CategoryController extends Controller
     {
         $catemain = Category::find($id);
         $post = Post::where('category_id', $id)->where('status',1)->orderBy('id','desc')->paginate(5);
-        return view('listcate.cate_detail', compact('catemain','post','sort'));
+        return view('listcate.cate_detail', compact('catemain','post'));
     }
 }

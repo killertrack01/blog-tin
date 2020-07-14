@@ -30,7 +30,7 @@
                             @endif
                         </div>
                     </div>
-                    <form action="{{ asset('admin/post/create') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ asset('admin/post/edit/'.$post->id) }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <!--Title-->
                         <div class="row">
@@ -52,7 +52,7 @@
                         <div class="row">
                             <div class="col-md-4 text-center">
                                 <label>Ảnh đại diện cũ</label>
-                                <img src="{{ url('img/upload/ava-post/'.$post->img) }}" width="75%" alt="Post image">
+                                <img src="{{ url('img/upload/ava-post/'.$post->img) }} " width="75%" alt="Post image">
                             </div>
                             <div class="col-xl-8">
                                 <div class="row">
@@ -83,8 +83,8 @@
                                             <!--img-->
                                             <label>Cập nhật hình mới cho bài viết</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="custom" name="imgava">
-                                                <label class="custom-file-label" for="custom">Choose file</label>
+                                                <input type="file" class="custom-file-input" name="imgava" value="{{ url('img/upload/ava-post/'.$post->img) }} ">
+                                                <label class="custom-file-label">Choose file</label>
                                             </div>
                                         </div>
                                     </div>

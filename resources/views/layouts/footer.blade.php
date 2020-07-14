@@ -54,26 +54,13 @@
                             <h4>Thể loại bài viết</h4>
                         </div>
                     </div>
+                    @foreach($cate as $c)
                     <div class="row">
                         <div class="col-xl-12">
-                            <a href="#">PC</a>
+                            <a href="{{ url('listcate/cate-detail/'.$c->id) }}">{{ $c->name }}</a>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <a href="#">Laptop</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <a href="#">Mobile</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <a href="#">Thiết bị ngoại vi</a>
-                        </div>
-                    </div>
+                    @endforeach 
                 </div>
             </div>
         </div>

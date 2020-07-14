@@ -61,6 +61,8 @@ Route::post('/feedback', 'FeedbackController@createFeedback')->name('createFeedb
 
 //Comment admin
 Route::get('admin/comment/list', 'CommentController@listComment');
+Route::get('admin/comment/edit/{id}', 'CommentController@editCmt');
+Route::post('admin/comment/edit/{id}', 'CommentController@postEditComment');
 Route::get('admin/comment/delete/{id}', 'CommentController@deleteComment');
 
 //Comment user

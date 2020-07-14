@@ -121,3 +121,8 @@
     </div>
 </div>
 @endsection
+@if(session('phanquyen'))
+<script>
+    alert("Bạn chưa đăng nhập !");
+</script>
+@endif

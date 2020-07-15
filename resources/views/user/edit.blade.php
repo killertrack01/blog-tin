@@ -12,7 +12,7 @@
             <div class="card-body">
 
                 <div class="form-group">
-                    <label><h4>Tiêu đề bài viết</h4></label>
+                    <label><h4>Tiêu đề bài viết<b style="color: red;"> *</b></h4></label>
                     <div class = "controls">
                         <input type="text" class="form-control" id="title" 
                         @if(isset($post->title))
@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="txt-author"><h4>Tác giả</h4></label>
+                    <label for="txt-author"><h4>Tác giả<b style="color: red;"> *</b></h4></label>
                     <div class = "controls">
                         <input type="text" class="form-control" id="author" 
                         @if(isset($post->author))
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="image"><h4>Ảnh đại diện bài viết</h4></label>
+                    <label for="image"><h4>Ảnh đại diện bài viết<b style="color: red;"> *</b></h4></label>
                     <hr>
                     <div class = "controls">
                         <input type="file" class="form-control-label" id="uImage" name="uImage" >
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="txt-category" for="basicinput">Thể loại</label>
+                    <label class="txt-category" for="basicinput">Thể loại<b style="color: red;"> *</b></label>
                         <div class="controls">
                             <select tabindex="1" name="uCategory" data-placeholder="Chọn thể loại.." class="span8">
                                 @if(isset($post->category_id))
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label><h4>Mô tả bài viết</h4></label>
+                    <label><h4>Mô tả bài viết<b style="color: red;"> *</b></h4></label>
                     <div class = "controls">
                         <input type="text" class="form-control" 
                         @if(isset($post->summary))
@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="control-group">
-                    <label><h4>Nội dung bài viết</h4></label>
+                    <label><h4>Nội dung bài viết<b style="color: red;"> *</b></h4></label>
                         <div class="controls">
                             <textarea class="span8" id="editor-vip" name="uNoidung" rows="5">
                             @if(isset($post->detail))

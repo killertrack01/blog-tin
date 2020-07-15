@@ -53,12 +53,12 @@ class CategoryController extends Controller
         return redirect('admin/category/edit/' . $id)->with('alert', 'Sửa tên loại bài thành công ');
     }
 
-    public function cateDelete($id)
-    {
-        $cate = Category::find($id);
-        $cate->delete();
-        return redirect('admin/category/list')->with('alert', 'xóa thành công');
-    }
+    // public function cateDelete($id)
+    // {
+    //     $cate = Category::find($id);
+    //     $cate->delete();
+    //     return redirect('admin/category/list')->with('alert', 'xóa thành công');
+    // }
 
     public function postCate(Request $request)
     {
@@ -88,8 +88,7 @@ class CategoryController extends Controller
     public function cateDetail(Request $request,$id)
     {
         $catemain = Category::find($id);
-        $post = Post::where('category_id', $id)->where('status',1)->paginate(5);
-        $sort=$post->sortByDesc('id');
-        return view('listcate.cate_detail', compact('catemain','post','sort'));
+        $post = Post::where('category_id', $id)->where('status',1)->orderBy('id','desc')->paginate(5);
+        return view('listcate.cate_detail', compact('catemain','post'));
     }
 }

@@ -1,32 +1,38 @@
 <!-- lưu tại /resources/views/product/create.blade.php -->
 @extends('admin.layout.master')
-@section('title', 'Thêm Admin')
+@section('title', 'Nâng cấp người dùng')
 @section('content')
-@if( Auth::user()->role =='2' )
+@if( Auth::user()->role =='2')
 <section class="content">
   <div class="container-fluid">
-    <div class="row" style="padding:50px">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Thêm người dùng thành Admin</h3>
-            @if (session('status'))
-            <div class="alert alert-success" role="alert">
-              {{ session('status') }}
-            </div>
-            @endif
+    <div class="row d-flex justify-content-center" style="padding:50px">
+      <div class="col-xl-11">
+        <div class="card" style="margin-top: 50px;">
+          <div class="card-header bg-dark">
+          <h2 class="text-uppercase text-center" style='font-family: "Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif'>Thêm người dùng thành Admin</h2>
+            
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <table id="listadmin" class="table table-bordered table-hover">
-              <thead>
+          <div class="row d-flex justify-content-center">
+                  <div class="col">
+                  @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                      {{ session('status') }}
+                    </div>
+                    @endif
+                  </div>
+                </div>
+            <div class="table-responsive">
+            <table id="listadmin" class="table table-bordered">
+              <thead class="thead-dark">
                 <tr>
-                  <th>Id</th>
-                  <th>Email Admin</th>
-                  <th>Họ Tên</th>
-                  <th>Ngày Sinh</th>
-                  <th>Tel</th>
-                  <th>Thao tác</th>
+                  <th class="align-middle text-center">Id</th>
+                  <th class="align-middle text-center">Email Admin</th>
+                  <th class="align-middle text-center">Họ Tên</th>
+                  <th class="align-middle text-center">Ngày Sinh</th>
+                  <th class="align-middle text-center">Tel</th>
+                  <th class="align-middle text-center">Thao tác</th>
                 </tr>
               </thead>
               <tbody>
@@ -34,11 +40,11 @@
                 @foreach ($users as $row)
                 @if ($row->role=='1')
                 <tr>
-                  <td>{{ $row->id }}</td>
-                  <td>{{ $row->email }}</td>
-                  <td>{{ $row->name }}</td>
-                  <td>{{ $row->dob }}</td>
-                  <td>{{ $row->tel }}</td>
+                  <td class="align-middle">{{ $row->id }}</td>
+                  <td class="align-middle">{{ $row->email }}</td>
+                  <td class="align-middle">{{ $row->name }}</td>
+                  <td class="align-middle">{{ $row->dob }}</td>
+                  <td class="align-middle">{{ $row->tel }}</td>
                   <td class="text-center">
                     <form action="/admin/control-admin/create/{{ $row->id }}" method="Post">
                       {{ csrf_field() }}
@@ -71,6 +77,7 @@
                 @endforeach
               </tbody>
             </table>
+            </div>
           </div>
           <!-- /.card-body -->
         </div>

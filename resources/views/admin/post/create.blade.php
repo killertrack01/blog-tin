@@ -33,8 +33,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Tiêu đề bài viết</label>
-                                    <input type="text" class="form-control" name="title" placeholder="Tiêu đề của bài viết">
+                                    <label>Tiêu đề bài viết <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="title" placeholder="Tiêu đề của bài viết" required value="{{ old('title') }}">
                                 </div>
                             </div>
                         </div>
@@ -42,8 +42,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Sơ lược về bài viết</label>
-                                    <textarea class="form-control" name="sum" rows="3" placeholder="sơ lược về bài viết"></textarea>
+                                    <label>Sơ lược về bài viết <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" name="sum" rows="3" placeholder="sơ lược về bài viết" required value="{{ old('sum') }}"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                             <div class="col-md-4">
                                 <!--Category-->
                                 <div class="form-group">
-                                    <label>Loại bài viết</label>
+                                    <label>Loại bài viết <span class="text-danger">*</span> </label>
                                     <select class="form-control" name="cate" id="cate">
                                         @foreach($cate as $c)
                                         <option value="{{ $c->id }}">{{ $c->name }}</option>
@@ -62,7 +62,7 @@
                             <div class="col-md-4">
                                 <!--author-->
                                 <div class="form-group">
-                                    <label>Người đăng</label>
+                                    <label>Người đăng <span class="text-danger">*</span></label>
                                     @foreach($user as $u)
                                     @if($u->id === $id=(auth()->user()->id))
                                     <input type="hidden" name="author" value="{{ $u->id }}">
@@ -74,7 +74,7 @@
                             </div>
                             <div class="col-md-4">
                                 <!--img-->
-                                <label>Hình tượng trưng cho bài viết</label>
+                                <label>Hình tượng trưng cho bài viết <span class="text-danger">*</span></label>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="custom" name="imgava">
                                     <label class="custom-file-label" for="custom">Choose file</label>
@@ -85,7 +85,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Chi tiết bài viết</label>
+                                    <label>Chi tiết bài viết <span class="text-danger">*</span></label>
                                     <textarea name="detail" id="edit1" class="form-control"></textarea>
                                 </div>
                             </div>

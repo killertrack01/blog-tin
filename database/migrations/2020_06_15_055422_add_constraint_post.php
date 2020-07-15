@@ -14,8 +14,8 @@ class AddConstraintPost extends Migration
     public function up()
     {
         Schema::table('post', function (Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('category');
+            $table->foreign('users_id')->references('id')->on('users');
         });
     }
 

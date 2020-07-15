@@ -27,7 +27,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('admin/control-admin/list', 'AdminController@listAdmin');
     //Route::delete('/delete-admin/{id}', 'AdminController@deleteAdmin');
     Route::put('/deletepersion-admin/{id}', 'AdminController@deletepersionAdmin');
-    Route::get('admin/control-admin/createadmin', 'AdminController@createad')->name('cread');
+    Route::get('/admin/control-admin/createadmin','AdminController@addadmin')->name('ad');
+    Route::get('/admin/control-admin/createadmin/add','AdminController@addad')->name('add');
     Route::get('admin/control-admin/create', 'AdminController@createAdmin');
 
     Route::put('admin/control-admin/create/{id}', 'AdminController@creAdmin');

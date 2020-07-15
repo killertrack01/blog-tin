@@ -18,7 +18,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        <a class="dropdown-item"> Chào {{Auth::user()->name}}
                             <a class="dropdown-item" href="{{ route('info') }}">{{ __('Thông tin cá nhân') }}</a>
                             @if ((Auth::user()->role =='0')||(Auth::user()->role =='2'))
                             <a class="dropdown-item" href="{{ route('admin') }}">{{ __('Dashboard Admin') }}</a>

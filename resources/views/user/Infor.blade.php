@@ -31,7 +31,7 @@
                                             @if($row->gender=='F')
                                             <div><h5><b>Giới Tính:</b> Nữ </h5></div>
                                             @else
-                                            <div><h5><b>Giới Tính:</b> Không Xác Định </h5></div>
+                                            <div><h5><b>Giới Tính:</b></h5></div>
                                             @endif
                                         @endif
                                         <div><h5><b>Ngày Sinh:</b> {{ $row->dob }}</h5></div>

@@ -30,11 +30,12 @@ class InfoController extends Controller
             ],
             [
                 'email' => 'Vui lòng nhập đúng email',
-                'name.required' => 'Bạn chưa nhập',
+                'name.required' => 'Bạn chưa nhập tên',
                 'name.min' => 'Tên phải đạt ít nhất 2 kí tự',
                 'name.max' => 'Tên không được vượt quá 100 kí tự',
                 'tel.min' => 'Số điện thoại phải có chiều dài là 10',
                 'tel.max' => 'Số điện thoại phải có chiều dài là 10',
+                'tel.regex' => 'Vui lòng nhập đúng số điện thoại'
             ]
         );
         $check=true;

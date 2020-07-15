@@ -36,7 +36,6 @@
                 </tr>
               </thead>
               <tbody>
-              <tbody>
                 @foreach ($users as $row)
                 @if ($row->role=='0')
                 <tr>
@@ -119,7 +118,7 @@
 @section('script-section')
 <script>
   $(function() {
-    $('#listcate').DataTable({
+    $('#listadmin').DataTable({
       "paging": true,
       "lengthChange": true,
       "searching": true,

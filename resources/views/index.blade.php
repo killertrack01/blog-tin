@@ -295,7 +295,7 @@
 		border-color: rgba(0, 0, 0, 0.1);
 	}
 	.card-footer{
-		height:300px;
+		height:400px;
 	}
   </style>
   <div class="container-fluid">
@@ -351,7 +351,7 @@
 		</div>
 		<div class="card-footer bg-dark text-light">
 		<p><a href="{{ url('listcate/detail/'.$rrr->id) }}">{{$rrr->title}}</a></p>
-		<p>{{$rrr->summary}}</p>
+		<p><small>{{ ($rrr->summary) }}</small></p>
 		</div>
 	</div>
 	</div>

@@ -94,7 +94,7 @@
 @section('script-section')
 <script>
   $(function() {
-    $('#listcate').DataTable({
+    $('#listmember').DataTable({
       "paging": true,
       "lengthChange": true,
       "searching": true,

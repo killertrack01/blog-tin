@@ -37,7 +37,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('cread') }}" class="nav-link">
+                            <a href="{{ url('admin/control-admin/createadmin') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm admin</p>
                             </a>

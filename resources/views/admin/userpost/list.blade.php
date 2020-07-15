@@ -1,39 +1,40 @@
 @extends('admin.layout.master')
 @section('title', 'Danh sách tin chờ')
 @section('content')
-<section class="content">
-      <div class="container-fluid">
-      <div class="row">
-            @if(session('alert'))
-            <div class="alert alert-success">
-                {{session('alert')}}
-            </div>
-            @endif
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xl-11">
+      <div class="card" style="margin-top: 50px;">
+        <div class="card-header bg-dark">
+          <h2 class="text-uppercase text-center" style='font-family: "Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif'>Danh sách Bài viết đang chờ </h2>
         </div>
-    </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Danh sách Bài viết đang chờ</h3>
+        <div class="card-body">
+          <!--thông báo là đã thêm thành công hay chưa-->
+          <div class="row d-flex justify-content-center">
+            <div class="col">
+              @if(session('alert'))
+              <div class="alert alert-success">
+                {{session('alert')}}
               </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="upostlist" class="table table-bordered table-hover">
-                  <thead>
-                  <tr>
-                    <th>STT</th>
-                    <th>Tác giả</th>
-                    <th>Tên người đăng</th>
-                    <th>Tiêu đề</th>
-                    <th>Tóm tắt</th>
-                    <th>Ảnh bìa</th>
-                    <th>Ngày đăng</th>
-                    <th></th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  @foreach($posts as $key => $val)
+              @endif
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table id="listPost" class="table table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th class="align-middle text-center">STT</th>
+                  <th class="align-middle text-center">Tác giả</th>
+                  <th class="align-middle text-center">Tên người đăng</th>
+                  <th class="align-middle text-center">Tiêu đề</th>
+                  <th class="align-middle text-center">Tóm tắt</th>
+                  <th class="align-middle text-center">Ảnh bìa</th>
+                  <th class="align-middle text-center">Ngày đăng</th>
+                  <th class="align-middle text-center">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody>
+              @foreach($posts as $key => $val)
                   <tr class="odd gradeX">
                     <td width="3%">{{$key}}</td>
                     <td>{{$val->author}}</td>
@@ -46,44 +47,41 @@
                     <td>{{$val->summary}}</td>
                     <td><img src="{{url('img/upload/ava-post/'.$val->img)}}" width="100px" height="100px"></td>
                     <td width="8%">{{$val->created_at}}</td>
-                    <td class="text-right" width="15%">
-                        <a class="btn btn-info btn-sm" href="{{route('AdminUpdateStatus',$val->id)}}">
-                            <i class="fas fa-pencil-alt"></i> Duyệt
+                    <td class="align-middle text-center">
+                        <a href="{{route('AdminUpdateStatus',$val->id)}}">
+                          <span class="badge badge-success"><i class="fas fa-pencil-alt"></i> Duyệt</span>
                         </a>
-                        <a class="btn btn-danger btn-sm xacnhan" href="{{route('AdmindeletePost',$val->id)}}">
-                            <i class="fas fa-trash"></i> Xóa
+                        <a class="xacnhan" href="{{route('AdmindeletePost',$val->id)}}">
+                        <span class="badge badge-danger"><i class="fas fa-trash"></i> Xóa</span>
                         </a>
-                        <a class="btn btn-secondary btn-sm" href="{{route('userpost',$val->id)}}">
-                            <i class="fas fa-street-view"></i> Chi tiết
+                        <a href="{{route('userpost',$val->id)}}">
+                        <span class="badge badge-primary"><i class="fas fa-street-view"></i> Chi tiết</span>
                         </a>
                       </td>
                 </tr>
                 @endforeach
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>STT</th>
-                    <th>Tác giả</th>
-                    <th>ID Tác giả</th>
-                    <th>Tiêu đề</th>
-                    <th>Tóm tắt</th>
-                    <th>Ảnh bìa</th>
-                    <th>Ngày đăng</th>
-                    <th></th>
-                  </tr>
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+              </tbody>
+              <tfoot>
+              <tr>
+                  <th class="align-middle text-center">STT</th>
+                  <th class="align-middle text-center">Tác giả</th>
+                  <th class="align-middle text-center">Tên người đăng</th>
+                  <th class="align-middle text-center">Tiêu đề</th>
+                  <th class="align-middle text-center">Tóm tắt</th>
+                  <th class="align-middle text-center">Ảnh bìa</th>
+                  <th class="align-middle text-center">Ngày đăng</th>
+                  <th></th>
+                </tr>
+                </tfoot>
+            </table>
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
       </div>
-      <!-- /.container-fluid -->
-    </section>
+    </div>
+  </div>
+</div>
+
+
 @endsection
 @section('script-section')
 <script>

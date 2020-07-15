@@ -39,8 +39,7 @@
                   <th>Người bình luận</th>
                   <th>Nội dung</th>
                   <th>Ngày đăng</th>
-                  <th>Sửa</th>
-                  <th>Xóa</th>
+                  <th>Thao tác</th>
                 </tr>
               </thead>
               <tbody>
@@ -54,9 +53,23 @@
                   @endforeach
                   <td class="align-middle">{{ $c->detail }}</td>
                   <td class="align-middle">{{ $c->created_at }}</td>
-                  <td class="align-middle"><a onclick="return confirm(' Bạn có muốn xóa không ?')" href="{{ url("admin/comment/delete/{$c->id}") }}">
-                      <h3><span class="badge badge-danger"><i class="fas fa-trash-alt"></i></span></h3>
-                    </a></td>
+                  <td class="align-middle text-center">
+                    <h3>
+                      @if($c->users_id==($id=auth()->user()->id))
+                      <a href="{{ url("admin/comment/edit/{$c->id}") }}">
+                        <span class="badge badge-success"><i class="fas fa-tools"></i></span>
+                      </a>
+                      <a href="{{ url("admin/comment/delete/{$c->id}") }}" onclick="return confirm(' Bạn có chắc muốn xóa không ?')">
+                        <span class="badge badge-danger"><i class="fas fa-trash-alt"></i></span>
+                      </a>
+                      @else
+                      <span class="badge badge-secondary"><i class="fas fa-tools"></i></span>
+                      <a href="{{ url("admin/comment/delete/{$c->id}") }}" onclick="return confirm(' Bạn có chắc muốn xóa không ?')">
+                        <span class="badge badge-danger"><i class="fas fa-trash-alt"></i></span>
+                      </a>
+                      @endif
+                    </h3>
+                  </td>
                 </tr>
                 @endforeach
               </tbody>

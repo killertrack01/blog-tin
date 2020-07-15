@@ -41,7 +41,7 @@
                         {{ csrf_field() }}
                         <div class="row">
                             <div class="col-sm-12 form-group">
-                                <label style="color: black; font-size:large">Bạn đánh giá thế nào về trải nghiệm chung của bạn?</label>
+                                <label style="color: black; font-size:large"><b style="color: red;">*</b> Bạn đánh giá thế nào về trải nghiệm chung của bạn?</label>
                                 <div class="form-check">
                                     <label><input class="form-check-input" type="radio" name="rate" value="Tệ">Tệ</label>
                                 </div>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12 form-group">
-                                <label for="comments" style="color: black; font-size:large">Ý kiến phản hồi</label>
+                                <label for="comments" style="color: black; font-size:large"><b style="color: red;">*</b> Ý kiến phản hồi</label>
                                 <textarea class="form-control" type="textarea" name="detail" placeholder="Nhập vào đây" maxlength="6000" rows="7"></textarea>
                                 @if($errors->has('detail'))
                                 <p class="alert alert-danger">{{$errors->first('detail')}}</p>
@@ -67,15 +67,15 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6 form-group">
-                                <label for="name" style="color: black;">Họ và tên</label>
-                                <input type="text" class="form-control" id="name" name="name">
+                                <label for="name" style="color: black;"><b style="color: red;">*</b> Họ và tên</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Tên của bạn">
                                 @if($errors->has('name'))
                                 <p class="alert alert-danger">{{$errors->first('name')}}</p>
                                 @endif
                             </div>
                             <div class="col-sm-6 form-group">
-                                <label for="email" style="color: black;">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+                                <label for="email" style="color: black;"><b style="color: red;">*</b> Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email của bạn" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
                                 @if($errors->has('email'))
                                 <p class="alert alert-danger">{{$errors->first('email')}}</p>
                                 @endif

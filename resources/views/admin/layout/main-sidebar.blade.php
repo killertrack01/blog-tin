@@ -128,7 +128,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
-                            Comment
+                            Bình luận
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -136,7 +136,7 @@
                         <li class="nav-item">
                             <a href="{{ url('admin/comment/list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sách Comment</p>
+                                <p>Danh sách bình luận</p>
                             </a>
                         </li>
                     </ul>
@@ -145,7 +145,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-envelope"></i>
                         <p>
-                            Feedback
+                            Phản hồi
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -153,7 +153,7 @@
                         <li class="nav-item">
                             <a href="{{ url('admin/feedback/list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sách Feedback</p>
+                                <p>Danh sách phản hồi</p>
                             </a>
                         </li>
                     </ul>

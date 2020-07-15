@@ -67,6 +67,15 @@ class CommentController extends Controller
     //User bình luận
     public function postComment(Request $request, $post_id)
     {
+        $this->validate(
+            $request,
+            [
+                'detail' => 'required',
+            ],
+            [
+                'detail.required' => 'Bạn chưa nhập bình luận !',
+            ]
+        );
         if (Auth::check()) {
             $user_id = Auth::user()->id;
             $cmt = new Comment;

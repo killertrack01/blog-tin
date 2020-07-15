@@ -44,6 +44,9 @@
                                                     <textarea class="form-control" name="detail" rows="4"></textarea>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Gửi</button>
+                                                @if($errors->has('detail'))
+                                                <p class="alert alert-danger">{{$errors->first('detail')}}</p>
+                                                @endif
                                             </form>
                                         </div>
                             </div>

@@ -13,8 +13,9 @@ class CategoryController extends Controller
 
     public function listCate()
     {
+        $post=Post::all();
         $cate = Category::all();
-        return view('admin.category.list', compact('cate'));
+        return view('admin.category.list', compact('cate','post'));
     }
 
     public function createCate()
@@ -53,12 +54,13 @@ class CategoryController extends Controller
         return redirect('admin/category/edit/' . $id)->with('alert', 'Sửa tên loại bài thành công ');
     }
 
-    // public function cateDelete($id)
-    // {
-    //     $cate = Category::find($id);
-    //     $cate->delete();
-    //     return redirect('admin/category/list')->with('alert', 'xóa thành công');
-    // }
+    public function cateDelete($id)
+    {
+        
+        $cate = Category::find($id);
+        $cate->delete();
+        return redirect('admin/category/list')->with('alert', 'xóa thành công');
+    }
 
     public function postCate(Request $request)
     {
@@ -76,6 +78,7 @@ class CategoryController extends Controller
                 'cateName.unique'=>'Tên đã tồn tại',
                 'description.required' => 'Bạn chưa nhập mô tả',
             ]
+            
         );
         $Cate = new Category;
         $Cate->name = $request->cateName;

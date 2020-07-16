@@ -43,9 +43,11 @@
                 <td class="align-middle"><a href="{{ asset('admin/category/edit/'.$c->id) }}">
                     <span class="btn btn-success"><i class="fas fa-tools"></i></span>
                   </a>
-                  <!-- <a href="{{ asset('admin/category/delete/'.$c->id) }}" onclick="return confirm(' bạn có muốn xóa ko ?')">
+                  @if($post->where('category_id',$c->id)->count()==0)
+                  <a href="{{ asset('admin/category/delete/'.$c->id) }}" onclick="return confirm(' bạn có muốn xóa ko ?')">
                     <span class="btn btn-danger"><i class="fas fa-trash-alt"></i></span>
-                  </a> -->
+                  </a>
+                  @endif
                 </td>
               </tr>
               @endforeach

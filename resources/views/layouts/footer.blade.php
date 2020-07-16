@@ -1,4 +1,4 @@
-<div class="container-fluid text-center" style="margin-top: 12px;">
+<div class="container-fluid" style="margin-top: 12px;">
     <div class="footer">
         <div class="row">
             <!--logo-->

@@ -76,7 +76,7 @@
                                 <!--img-->
                                 <label>Hình tượng trưng cho bài viết <span class="text-danger">*</span></label>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="custom" name="imgava">
+                                    <input type="file" class="custom-file-input" id="custom" name="imgava" value="{{ old('imgava') }}">
                                     <label class="custom-file-label" for="custom">Choose file</label>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Chi tiết bài viết <span class="text-danger">*</span></label>
-                                    <textarea name="detail" id="edit1" class="form-control"></textarea>
+                                    <textarea name="detail" id="edit1" class="form-control" value="{{ old('sum') }}"></textarea>
                                 </div>
                             </div>
                         </div>

@@ -51,6 +51,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     Route::get('admin/member/list', 'MemberController@listMem');
     Route::delete('/delete/{id}', 'MemberController@deleteMember');
+    Route::get('admin/member/unlock/{id}', 'MemberController@unlock');
     Route::get('/updateIF/{id}', 'InfoController@update')->name('update');
     Route::put('/user-updateIF/{id}', 'InfoController@updateuser');
 });

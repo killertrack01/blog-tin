@@ -14,7 +14,15 @@ class MemberController extends Controller
     public function deleteMember($id)
     {
         $users = User::findOrFail($id);
-        $users->delete();
-        return redirect('admin/member/list')->with('status','Xóa Thành Công');
+        $users->banned_until=now()->addDays(5000);
+        $users->update();
+        return redirect('admin/member/list')->with('status','Khóa Người Dùng Thành Công');
+    }
+    public function unlock($id)
+    {
+        $users = User::findOrFail($id);
+        $users->banned_until=NULL;
+        $users->update();
+        return redirect('admin/member/list')->with('status','Đã Mở Khóa Người Dùng');
     }
 }

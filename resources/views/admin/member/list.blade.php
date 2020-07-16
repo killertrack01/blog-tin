@@ -46,31 +46,41 @@
                     <td class="align-middle">{{ $row->gender }}</td>
                     <td class="align-middle">{{ $row->tel }}</td>
                     <td class="text-center">
+                    
                         <form action="/delete/{{ $row->id }}" method="post">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash"></i></button>
+                            @if( now() > $row->banned_until)
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-ban"></i></button>
                                   <!-- Modal -->
                                   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                       <div class="modal-content">
                                         <div class="modal-header">
-                                          <h5 class="modal-title" id="exampleModalLabel">Cảnh Báo Xóa Người Dùng !!!</h5>
+                                          <h5 class="modal-title" id="exampleModalLabel">Cảnh Báo khóa Người Dùng !!!</h5>
                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                           </button>
                                         </div>
                                         <div class="modal-body">
-                                            Bạn có chắc muốn xóa Người Dùng ?
+                                            Bạn có chắc muốn khóa Người Dùng ?
                                         </div>
                                         <div class="modal-footer">
-                                          <button type="submit" class="btn btn-danger">Xóa</button>
+                                          <button type="submit" class="btn btn-danger">Khóa</button>
                                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
                                         </div>
                                       </div>
                                     </div>
                                   </div>
+                                  @else
+                                  
+                                  <a href="{{ asset('admin/member/unlock/'.$row->id) }}" onclick="return confirm(' Bạn Có Chắc Muốn Mở Khóa Người Dùng Này?')">
+                                    <span class="btn btn-success btn-sm"><i class="fa fa-key"></i></span>
+                                  </a>
+                                  @endif
                         </form>
+                        
+                       
                     </td>
                   </tr>
                   @endif

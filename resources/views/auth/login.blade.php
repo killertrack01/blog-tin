@@ -6,7 +6,9 @@
         <div class="col-md-8" style="padding:50px">
             <div class="card bg-light text-dark">
             <div class="card-header text-center bg-dark text-light"><h5><b>{{ __('ĐĂNG NHẬP') }}</b></h5></div>
-
+            @if (session('message'))
+                <div class="alert alert-danger">{{ session('message') }}</div>
+            @endif
                 <div class="card-body" >
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

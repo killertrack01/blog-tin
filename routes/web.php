@@ -58,6 +58,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 //Feedback
 Route::get('admin/feedback/list', 'FeedbackController@listFeedback');
+Route::get('admin/feedback/report', 'FeedbackController@reportFeedback');
 Route::get('admin/delete/{id}', 'FeedbackController@deleteFeedback');
 Route::get('admin/update/{id}', 'FeedbackController@updateFeedback');
 Route::get('/feedback', 'FeedbackController@feedback')->name('feedback');

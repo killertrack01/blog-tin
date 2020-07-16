@@ -64,32 +64,6 @@ class CommentController extends Controller
         return view('user.listcomment')->with(['cmt' => $cmt, 'users' => $users, 'post' => $post]);
     }
 
-    //User bình luận
-    public function postComment(Request $request, $post_id)
-    {
-        $this->validate(
-            $request,
-            [
-                'detail' => 'required',
-            ],
-            [
-                'detail.required' => 'Bạn chưa nhập bình luận !',
-            ]
-        );
-        if (Auth::check()) {
-            $user_id = Auth::user()->id;
-            $cmt = new Comment;
-            $cmt['users_id'] = $user_id;
-            $cmt['post_id'] = $post_id;
-            $cmt['detail'] = $request['detail'];
-            $cmt->save();
-            return back();
-        }
-        else{
-            return back()->with('phanquyen' , 'Bạn chưa đăng nhập !');
-        }
-    }
-
     //User sửa bình luận
     public function editComment($id)
     {
@@ -122,5 +96,30 @@ class CommentController extends Controller
         $cmt = Comment::find($id);
         DB::table('comment')->where('id', '=', $id)->delete();
         return redirect()->action('CommentController@userlistCmt')->with('success', 'Xóa thành công');
+    }
+
+    public function postComment(Request $request, $post_id)
+    {
+        $this->validate(
+            $request,
+            [
+                'detail' => 'required',
+            ],
+            [
+                'detail.required' => 'Bạn chưa nhập bình luận !',
+            ]
+        );
+        if (Auth::check()) {
+            $user_id = Auth::user()->id;
+            $cmt = new Comment;
+            $cmt['users_id'] = $user_id;
+            $cmt['post_id'] = $post_id;
+            $cmt['detail'] = $request['detail'];
+            $cmt->save();
+            return back();
+        }
+        else{
+            return back()->with('phanquyen' , 'Bạn chưa đăng nhập !');
+        }
     }
 }

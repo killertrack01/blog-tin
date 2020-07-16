@@ -15,6 +15,13 @@ class FeedbackController extends Controller
         return view('admin.feedback.list')->with(['feedback'=>$feedback]);
     }
 
+    public function reportFeedback() 
+    {
+        $feedback = Feedback::all();
+        return view('admin.feedback.report')->with(['feedback'=>$feedback]);
+    }
+
+
     //Admin cập nhật phản hồi
     public function updateFeedback($id)
     {

@@ -174,7 +174,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $relate = Post::where('category_id', $post->category_id)->where('status',1)->take(3)
             ->get();
-        $cmt = Comment::where('post_id','=',$id)->get();
+        $cmt = Comment::where('post_id','=',$id)->orderBy('id','desc')->get();
         $user = User::all();
         return view('listcate.detail', ['post' => $post, 'relate' => $relate,'cmt' => $cmt, 'user' => $user]);
     }

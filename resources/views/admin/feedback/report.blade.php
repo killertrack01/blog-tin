@@ -1,5 +1,5 @@
-@extends('admin.layout.master')
-@section('title', 'Danh sách phản hồi')
+@extends('admin.feedback.masters')
+@section('title', 'My Report')
 @section('content')
 <section class="content">
   <!-- container-fluid -->
@@ -9,11 +9,11 @@
     <div class="row d-flex justify-content-center">
 
       <!-- col -->
-      <div class="col-xl-11">
-
+      <div class="justify-content-center">
+      
         <!-- card -->
         <div class="card" style="margin-top: 50px;">
-
+          
           <!-- card-header -->
           <div class="card-header bg-dark">
             <h2 class="text-uppercase text-center" style='font-family: "Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif'>Danh sách phản hồi</h2>
@@ -40,9 +40,9 @@
                   <th>Nội dung</th>
                   <th>Đánh giá</th>
                   <th>Trạng thái</th>
-                  <th>Cập nhật</th>
+                  <!--<th>Cập nhật</th>
                   <th>Trả lời</th>
-                  <th>Xóa</th>
+                  <th>Xóa</th>-->
                 </tr>
               </thead>
               <tbody>
@@ -60,7 +60,7 @@
                     Đã trả lời
                     @endif
                   </td>
-                  <td class="align-middle"><a href="{{ url("admin/update/{$f->id}") }}">
+                  <!--<td class="align-middle"><a href="{{ url("admin/update/{$f->id}") }}">
                       <h3><span class="badge badge-primary"><i class="fas fa-reply"></i></span></h3>
                     </a></td>
                   <td class="align-middle"><a href="mailto:">
@@ -68,15 +68,11 @@
                     </a></td>
                   <td class="align-middle"><a onclick="return confirm(' Bạn có muốn xóa không ?')" href="{{ url("admin/delete/{$f->id}") }}">
                       <h3><span class="badge badge-danger"><i class="fas fa-trash-alt"></i></span></h3>
-                    </a></td>
+                    </a></td>-->
                 </tr>
                 @endforeach
               </tbody>
             </table>
-            <a href="{{ url('admin/feedback/report') }}">
-              <h3><span class="btn btn-outline-warning"><i>Report</i></span></h3>
-            </a>
-
           </div>
           <!-- /.card-body -->
 
@@ -92,19 +88,4 @@
   </div>
   <!-- /.container-fluid -->
 </section>
-@endsection
-@section('script-section')
-<script>
-  $(function() {
-    $('#listfeedback').DataTable({
-      "paging": true,
-      "lengthChange": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": true,
-      "responsive": true,
-    });
-  });
-</script>
 @endsection

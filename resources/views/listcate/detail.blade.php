@@ -30,50 +30,50 @@
                         <div class="col-xl-2"></div>
                         <div class="col-xl-10">
                             <p>{!! $post->detail !!}</p>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <!-- comment-form -->
+                                    <div class="card my-4">
+                                        <h4 class="card-header">Bình luận</h4>
+                                        <p>
+                                            <p>
+                                                <div class="card-body">
+                                                    <form action="{{route('comment',$post->id)}}" method="post">
+                                                        {{ csrf_field() }}
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" name="detail" rows="4"></textarea>
+                                                        </div>
+                                                        @if($errors->has('detail'))
+                                                        <p class="alert alert-danger">{{$errors->first('detail')}}</p>
+                                                        @endif
+                                                        <button type="submit" class="btn btn-primary">Gửi</button>
+                                                    </form>
+                                                </div>
+                                    </div>
+                                    <!-- /.comment-form -->
+                                    <!-- comment-list -->
+                                    @foreach($cmt as $key => $val)
+                                    @foreach($user as $val2)
+                                    @if($val->users_id === $val2->id)
+                                    <div class="card my-4">
+                                        <div class="card-body">
+                                            <h5 class="mt-0">{{$val2->name}}</h5>
+                                            <small><i>{{$val->created_at}}</i></small><br>
+                                            {{$val->detail}}
+                                        </div>
+                                    </div>
+                                    @endif
+                                    @endforeach
+                                    @endforeach
+                                    <!-- /.comment-list -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-6"></div>
                         <div class="col-xl-6 text-right">
                             Người đăng: <b>{{ $post->user->name }}</b>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <!-- comment-form -->
-                            <div class="card my-4">
-                                <h4 class="card-header">Bình luận</h4>
-                                <p>
-                                    <p>
-                                        <div class="card-body">
-                                            <form action="{{route('comment',$post->id)}}" method="post">
-                                                {{ csrf_field() }}
-                                                <div class="form-group">
-                                                    <textarea class="form-control" name="detail" rows="4"></textarea>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Gửi</button>
-                                                @if($errors->has('detail'))
-                                                <p class="alert alert-danger">{{$errors->first('detail')}}</p>
-                                                @endif
-                                            </form>
-                                        </div>
-                            </div>
-                            <!-- /.comment-form -->
-                            <!-- comment-list -->
-                            @foreach($cmt as $key => $val)
-                            @foreach($user as $val2)
-                            @if($val->users_id === $val2->id)
-                            <div class="card my-4">
-                                <div class="card-body">
-                                    <h5 class="mt-0">{{$val2->name}}</h5>
-                                    <small><i>{{$val->created_at}}</i></small><br>
-                                    {{$val->detail}}
-                                </div>
-                            </div>
-                            @endif
-                            @endforeach
-                            @endforeach
-                            <!-- /.comment-list -->
                         </div>
                     </div>
                 </div>

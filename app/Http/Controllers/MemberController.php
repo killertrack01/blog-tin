@@ -25,4 +25,9 @@ class MemberController extends Controller
         $users->update();
         return redirect('admin/member/list')->with('status','Đã Mở Khóa Người Dùng');
     }
+    public function report()
+    {
+        $users= User::all();
+        return view('admin.member.report')->with('user',$users);
+    }
 }

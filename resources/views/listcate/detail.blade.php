@@ -39,7 +39,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xl-12">
+                    <div class="col-xl-2"></div>
+                        <div class="col-xl-10">
                             <!-- comment-form -->
                             <div class="card my-4">
                                 <h4 class="card-header">Bình luận</h4>

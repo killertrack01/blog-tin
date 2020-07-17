@@ -95,6 +95,11 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('create', 'CategoryController@createCate');
         Route::post('create', 'CategoryController@postCate');
+
+        Route::get('report',function(){
+            $report= Category::all();
+            return view('admin.category.report',compact('report'));
+        });
     });
 });
 
@@ -114,6 +119,7 @@ Route::group(['prefix' => 'admin/post'], function () {
 
     //delete post
     Route::get('delete/{id}', 'PostController@deletePost');
+
 });
 
 //config ckeditor

@@ -82,6 +82,13 @@
                                 <p>Thêm Thể loại bài</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a target="_blank" href="{{ url('admin/category/report') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Báo cáo tất cả thể loại</p>
+                            </a>
+                        </li>
+                        
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">

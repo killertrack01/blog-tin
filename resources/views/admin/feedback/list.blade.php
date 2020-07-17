@@ -73,16 +73,15 @@
                 @endforeach
               </tbody>
             </table>
-            <a href="{{ url('admin/feedback/report') }}">
-              <h3><span class="btn btn-outline-warning"><i>Report</i></span></h3>
-            </a>
-
+           
           </div>
           <!-- /.card-body -->
 
         </div>
         <!-- /.card -->
-
+        <a href="{{ url('admin/feedback/report') }}">
+              <h3><span class="btn btn-outline-warning"><i>Report</i></span></h3>
+            </a>
       </div>
       <!-- /.col -->
 

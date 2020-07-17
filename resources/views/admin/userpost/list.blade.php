@@ -19,6 +19,9 @@
               @endif
             </div>
           </div>
+          <a href="{{ url('admin/userpost/report') }}">
+              <h3><span class="btn btn-outline-warning"><i>Report</i></span></h3>
+            </a>
           <div class="table-responsive">
             <table id="listPost" class="table table-bordered">
               <thead class="thead-dark">

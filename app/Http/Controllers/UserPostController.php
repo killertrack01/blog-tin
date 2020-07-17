@@ -20,6 +20,13 @@ class UserPostController extends Controller
         return view('admin.userpost.list',['posts'=> $posts])->with('user',$user);
     }
 
+    public function ReportlistUPost()
+    {
+        $user = User::all();
+        $posts = DB::table('post')->where('status','0')->get();
+        return view('admin.userpost.report',['posts'=> $posts])->with('user',$user);
+    }
+
     public function detail($tit)
     {
         $id = "";

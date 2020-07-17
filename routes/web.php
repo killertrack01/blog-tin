@@ -47,6 +47,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('userpost/update/{id}', 'UserPostController@updateStatus')->name('AdminUpdateStatus');
 
     Route::get('userpost/delete/{id}', 'UserPostController@deletePost')->name('AdmindeletePost');
+
+    Route::get('admin/userpost/report', 'UserPostController@ReportlistUPost')->name('reportList');
     //
 
     Route::get('admin/member/list', 'MemberController@listMem');
